@@ -7,4 +7,4 @@ Inspired from the [original hackmd document](https://hackmd.io/@mathiasg/SJCPHKZ
 
 - [Bronze](./checklists/bronze.md)
 - [Silver](./checklists/silver.md)
-- [Gold](./checklists.gold.md)
+- [Gold](./checklists/gold.md)
