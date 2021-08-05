@@ -5,23 +5,27 @@
 
 ### Documentation
 
-- [ ] Brief description of what program does is listed.
-- [ ] An example of its usage is shown.
+- [x] Brief description of what program does is listed.
+- [x] An example of its usage is shown.
   - typical usage
-- [ ] Description of required input parameters.
+- [x] Description of required input parameters.
   - Reasonable description (i.e. "Nifti of brain mask in MNI" vs. "An image file")
-- [ ] Description of output(s).
+- [x] Description of output(s).
 
 
 ### Infrastructure
 
-- [ ] Package is under version control.
-- [ ] Readme is present.
-- [ ] License is present.
-- [ ] Issues tracking is enabled (either through GitHub or external site).
-- [ ] Contributing guidelines (Intent of not maintenance?)
+- [x] Package is under version control.
+- [x] Readme is present.
+- [x] License is present.
+- [x] Issues tracking is enabled (either through GitHub or external site).
+- [ ] Contributing guidelines (Intent of not maintenance?) (Punt to silver?)
   - Adding NMinD template for users with important questions
-- [ ] [Digital Object Identifier] - (Zenodo)
+- [ ] Persistent URL: [Digital Object Identifier] - (Zenodo)
+  - Installable packages should have some basic metadata:
+  - [x] Source code URL
+  - [ ] Version
+  - [ ] Maintainer listed or intent of no maintenance
 
 
 ### Code
