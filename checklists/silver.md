@@ -6,32 +6,33 @@
 
 ### Documentation
 
-- [ ] **Background/significance of program.**
-- [ ] Description of what program does is listed.
-- [ ] **A tutorial that showcases the program's usage. If multiple usages, examples of those are shown also.**
-- [ ] Description of **all** input parameters.
-- [ ] Description of outputs.
+- [x] **Background/significance of program.**
+  - [x] link to relevant manuscripts if applicable 
+- [x] Description of what program does is listed.
+- [x] **A tutorial that showcases the program's usage. If multiple usages, examples of those are shown also.**
+- [x] Description of **all** input parameters.
+- [x] Description of outputs.
     - Advanced usage
     - Document functions intended to be used by users.
 
 
 ### Infrastructure
 
-- [ ] Readme is present.
+- [x] Readme is present.
 - [ ] DOI (Open Science Framework)
-- [ ] License is present.
-- [ ] Issues are enabled.
+- [x] License is present.
+- [x] Issues are enabled.
 - [ ] **Issue template(s) available (information requested by developers).**
 
 
 ### Code
 
-- [ ] Installation instructions available.
-- [ ] No excessive files included (gitignore).
+- [x] Installation instructions available.
+- [x] No excessive files included (gitignore).
 - [ ] **Adheres to a style guide (i.e., Python and Flake8)**
 - [ ] Portability guide
-    - [ ] Application/Script: **Containerization** (Dockerfile and/or Singularity recipe)
-    - [ ] Utility library: Up to user?
+    - [x] Application/Script: **Containerization** (Dockerfile and/or Singularity recipe)
+    - [ ] ? Utility library: Up to user?
 
 
 ### Testing
