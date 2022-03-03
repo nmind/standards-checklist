@@ -1,52 +1,37 @@
 ## Gold Certification
 
-**BOLD text is different from Silver**
+- [ ] **All items from Silver**
 
 > TODO: Insert example Gold cookie-cutter here.
 
 ### Documentation
 
-- [ ] Background/significance of program.
-- [ ] Description of what program does is listed.
-- [ ] A tutorial that showcases the program's usage. If multiple usages, examples of those are shown also.
-- [ ] Description of all input parameters.
-- [ ] Description of outputs.
-    - Advanced usage
-    - Document functions intended to be used by users.
-- [ ] Developer's guide
-    - [ ] Docstrings / description of lower level API (functions, classes, etc)
+- [ ] Continuous integration badges in README for
+    - [ ] build status
+    - [ ] tests passing
+    - [ ] test coverage
+    - [ ] style coverage
+    - [ ] docstring coverage
+- [ ] Multiple tutorials that showcase the multiple of the program's usages (if program has multiple usages)
+- [ ] Document functions, classes, modules, etc. (public + private docstring / help coverage ≥ 40%)
 
 
 ### Infrastructure
 
-- [ ] Readme is present.
-- [ ] **[Digital Object Identifier] - Journal of Open Source Software submission**
-- [ ] License is present.
-- [ ] Issues are enabled.
-- [ ] Issue template(s) available (information requested by developers).
-- [ ] **Contribution Guide present.**
-- [ ] **Code of Conduct present.**
+- [ ] Journal of Open Source Software submission
+- [ ] Contribution guide present
+- [ ] Code of Conduct present
 
 
 ### Code
 
-- [ ] Installation instructions available.
-- [ ] No excessive files included (gitignore).
-- [ ] Adheres to a style guide (i.e., Python and Flake8)
-- [ ] Portability guide
-    - [ ] Application/Script: Containerization (Dockerfile and/or Singularity recipe)
-    - [ ] Utility library: Up to user?
+- [ ] Style is tested and validated
 
 
 ### Testing
 
-- [ ] Package successfully builds/installs.
-- [ ] Some form of testing suite present.
-    - [ ] Unit testing
-    - [ ] Integration testing
-    - [ ] Smoke tests
-- [ ] Lines-hit tracker **(>90%)**
-- [ ] Provide testing for users
+- [ ] Continuous integration
+- [ ] Test coverage > 90%
 - [ ] Benchmarking
 
 
