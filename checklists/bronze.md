@@ -12,7 +12,7 @@
 - [ ] An example of its usage is shown
 - [ ] User installation instructions available
 - [ ] Dependencies listed (external and within-langugage requirements)
-- [ ] Description of required input parameters with reasonable description of inputs (i.e. "Nifti of brain mask in MNI" vs. "An image file")
+- [ ] Description of required input parameters for deliberately user-facing functions with reasonable description of inputs (i.e. "Nifti of brain mask in MNI" vs. "An image file")
 - [ ] Description of output(s)
 - [ ] Document functions intended to be used by users (public function docstring / help coverage ≥ 10%)
 
