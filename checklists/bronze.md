@@ -7,7 +7,7 @@
 
 - [ ] README provides link to documentation
 - [ ] Documentation corresponds to latest version of software
-- [ ] Brief description of what program does is listed
+- [ ] Brief description of what program does can be found on the landing page
 - [ ] Typical intended usage is described
 - [ ] An example of its usage is shown
 - [ ] User installation instructions available
