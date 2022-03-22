@@ -6,7 +6,7 @@
 ### Documentation
 
 - [ ] README provides link to documentation
-- [ ] Documentation is up-to-date
+- [ ] Documentation corresponds to latest version of software
 - [ ] Brief description of what program does is listed
 - [ ] Typical intended usage is described
 - [ ] An example of its usage is shown
