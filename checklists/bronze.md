@@ -5,7 +5,7 @@
 
 ### Documentation
 
-- [ ] README provides link to documentation
+- [ ] Landing page (e.g., GitHub README, website) provides a link to documentation
 - [ ] Documentation corresponds to latest version of software
 - [ ] Brief description of what program does can be found on the landing page
 - [ ] Typical intended usage is described
