@@ -3,6 +3,9 @@
 
 > TODO: Insert example Bronze cookie-cutter here.
 
+### Intendied audience
+* users
+
 ### Documentation
 
 - [ ] Landing page (e.g., GitHub README, website) provides a link to documentation

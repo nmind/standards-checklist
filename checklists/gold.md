@@ -4,6 +4,10 @@
 
 > TODO: Insert example Gold cookie-cutter here.
 
+### Intendied audience
+* users
+* developers
+
 ### Documentation
 
 - [ ] Continuous integration badges in README for

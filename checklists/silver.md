@@ -4,6 +4,10 @@
 
 > TODO: Insert example Silver cookie-cutter here.
 
+### Intendied audience
+* users
+* developers
+
 ### Documentation
 
 - [ ] Background/significance of program
