@@ -1,49 +1,39 @@
 ## Silver Certification
 
-**BOLD text is different from Bronze**
+- [ ] **All items from Bronze**
 
 > TODO: Insert example Silver cookie-cutter here.
 
+### Intended audience
+* users
+* developers
+
 ### Documentation
 
-- [ ] **Background/significance of program.**
-- [ ] Description of what program does is listed.
-- [ ] **A tutorial that showcases the program's usage. If multiple usages, examples of those are shown also.**
-- [ ] Description of **all** input parameters.
-- [ ] Description of outputs.
-    - Advanced usage
-    - Document functions intended to be used by users.
+- [ ] Background/significance of program
+- [ ] A tutorial that showcases the program's typical intended usage
+- [ ] Alternate usage is described
+- [ ] Thorough description of required and optional input parameters
+- [ ] Document public functions (docstring / help coverage ≥ 20%)
 
 
 ### Infrastructure
 
-- [ ] Readme is present.
-- [ ] DOI (Open Science Framework)
-- [ ] License is present.
-- [ ] Issues are enabled.
-- [ ] **Issue template(s) available (information requested by developers).**
+- [ ] Code is open source
+- [ ] Issue template(s) available (information requested by developers)
+- [ ] Continuous integration
 
 
 ### Code
 
-- [ ] Installation instructions available.
-- [ ] No excessive files included (gitignore).
-- [ ] **Adheres to a style guide (i.e., Python and Flake8)**
-- [ ] Portability guide
-    - [ ] Application/Script: **Containerization** (Dockerfile and/or Singularity recipe)
-    - [ ] Utility library: Up to user?
-
+- [ ] No excessive files included. (unused files / cached) (gitignore)
+- [ ] Has a documented style guide
+- [ ] Portability: has a container recipe and/or an up-to-date container is available
 
 ### Testing
 
-- [ ] Package successfully builds/installs.
-- [ ] Some form of testing suite present.
-    - [ ] Unit testing
-    - [ ] Integration testing
-    - [ ] Smoke tests
-- [ ] Lines-hit tracker (>50%?)
-- [ ] Provide testing for users
-
+- [ ] Some form of testing suite present (e.g., unit testing, integration testing, smoke tests)
+- [ ] Test coverage > 50%
 
 ### Benefits of Silver certification:
 In addition to Bronze beneifts...
