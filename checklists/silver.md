@@ -19,6 +19,7 @@
 
 ### Infrastructure
 
+- [ ] Code is open source
 - [ ] DOI points to latest version
 - [ ] Issue template(s) available (information requested by developers)
 
