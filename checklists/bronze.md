@@ -3,21 +3,20 @@
 
 > TODO: Insert example Bronze cookie-cutter here.
 
-### Intendied audience
+### Intended audience
 * users
 
 ### Documentation
 
-- [ ] Landing page (e.g., GitHub README, website) provides a link to documentation
-- [ ] Documentation corresponds to latest version of software
-- [ ] Brief description of what program does can be found on the landing page
+- [ ] Landing page (e.g., GitHub README, website) provides a link to documentation and brief description of what program does
+- [ ] Documentation is up to date with version of software
 - [ ] Typical intended usage is described
 - [ ] An example of its usage is shown
+- [ ] Document functions intended to be used by users (public function docstring / help coverage ≥ 10%)
+- [ ] Description of required input parameters for user-facing functions with reasonable description of inputs (i.e. "Nifti of brain mask in MNI" vs. "An image file")
+- [ ] Description of output(s)
 - [ ] User installation instructions available
 - [ ] Dependencies listed (external and within-langugage requirements)
-- [ ] Description of required input parameters for deliberately user-facing functions with reasonable description of inputs (i.e. "Nifti of brain mask in MNI" vs. "An image file")
-- [ ] Description of output(s)
-- [ ] Document functions intended to be used by users (public function docstring / help coverage ≥ 10%)
 
 ### Infrastructure
 
@@ -28,7 +27,6 @@
 - [ ] Contributing guidelines (Intent of not maintenance?)
   - Adding NMinD template for users with important questions
 - [ ] Digital Object Identifier points to project (e.g., Zenodo)
-- [ ] For new changes to be merged, all tests need to pass
 
 ### Code
 
@@ -38,7 +36,7 @@ No bronze-level requirements
 
 Some of these can be enforced by GitHub.
 
-- [ ] If a package / compiled-code ― successfully builds / installs. If containerized, container availble or build recipe succeeds
+- [ ] If a package / compiled-code ― successfully builds / installs. If containerized, container available or build recipe succeeds
 - [ ] Provide / generate / point to test data
 - [ ] Provide instructions for users to run tests
 
