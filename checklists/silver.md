@@ -4,7 +4,7 @@
 
 > TODO: Insert example Silver cookie-cutter here.
 
-### Intendied audience
+### Intended audience
 * users
 * developers
 
@@ -12,7 +12,7 @@
 
 - [ ] Background/significance of program
 - [ ] A tutorial that showcases the program's typical intended usage
-- [ ] Advanced usage is described
+- [ ] Alternate usage is described
 - [ ] Thorough description of required and optional input parameters
 - [ ] Document public functions (docstring / help coverage ≥ 20%)
 
@@ -20,19 +20,18 @@
 ### Infrastructure
 
 - [ ] Code is open source
-- [ ] DOI points to latest version
 - [ ] Issue template(s) available (information requested by developers)
+- [ ] Continuous integration
 
 
 ### Code
 
-- [ ] No excessive files included (gitignore)
+- [ ] No excessive files included. (unused files / cached) (gitignore)
 - [ ] Has a documented style guide
 - [ ] Portability: has a container recipe and/or an up-to-date container is available
 
 ### Testing
 
-- [ ] Provide / generate / point to test data and usage commands for users to run the most common use cases
 - [ ] Some form of testing suite present (e.g., unit testing, integration testing, smoke tests)
 - [ ] Test coverage > 50%
 

@@ -34,7 +34,6 @@
 
 ### Testing
 
-- [ ] Continuous integration
 - [ ] Test coverage > 90%
 - [ ] Benchmarking
 

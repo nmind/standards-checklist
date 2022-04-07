@@ -26,7 +26,7 @@
 - [ ] Issues tracking is enabled (either through GitHub or external site).
 - [ ] Contributing guidelines (Intent of not maintenance?)
   - Adding NMinD template for users with important questions
-- [ ] Digital Object Identifier points to project (e.g., Zenodo)
+- [ ] Digital Object Identifier (DOI) points to latest version (e.g., Zenodo)
 
 ### Code
 
