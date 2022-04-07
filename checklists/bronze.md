@@ -24,7 +24,7 @@
 - [ ] Readme is present.
 - [ ] License is present.
 - [ ] Issues tracking is enabled (either through GitHub or external site).
-- [ ] Contributing guidelines (Intent of not maintenance?)
+- [ ] Maintainer / intent of not maintenance
   - Adding NMinD template for users with important questions
 - [ ] Digital Object Identifier (DOI) points to latest version (e.g., Zenodo)
 
