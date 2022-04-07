@@ -4,7 +4,7 @@
 
 > TODO: Insert example Gold cookie-cutter here.
 
-### Intendied audience
+### Intended audience
 * users
 * developers
 
