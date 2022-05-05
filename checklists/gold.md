@@ -16,7 +16,6 @@
     - [ ] test coverage
     - [ ] style coverage
     - [ ] docstring coverage
-- [ ] Multiple tutorials that showcase the multiple of the program's usages (if program has multiple usages)
 - [ ] Document functions, classes, modules, etc. (public + private docstring / help coverage ≥ 40%)
 
 
@@ -29,13 +28,14 @@
 
 ### Code
 
+- [ ] Has a documented style guide
 - [ ] Style is tested and validated
 
 
 ### Testing
 
 - [ ] Test coverage > 90%
-- [ ] Benchmarking
+- [ ] Benchmarking information is provided for examples (TODO: define information)
 
 
 ### Benefits of Gold certification:
