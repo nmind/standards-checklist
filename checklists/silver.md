@@ -11,26 +11,16 @@
 
 - [ ] Background/significance of program
 - [ ] One or more tutorial to showcase the multiple of the program's usages (if program has multiple usages)
-- [ ] Alternate usage is described
+- [ ] Any alternative usage that is advertised is throroughly documented
 - [ ] Thorough description of required and optional input parameters
 - [ ] Document public functions (docstring / help coverage ≥ 20%)
-
+- [ ] A statement of supported operating systems / environments
 
 ### Infrastructure
 
-- [ ] Code is open source
 - [ ] Issue template(s) available (information requested by developers)
-- [ ] Continuous integration
-
-
-### Code
-
+- [ ] Continuous integration runs tests
 - [ ] No excessive files included. (unused files / cached) (gitignore)
-- [ ] Portability:
-    - has a container recipe
-    - OR an up-to-date container is available
-    - OR an online playground (e.g., binder)
-- [ ] Available distribution by package manager (e.g., PyPI / Conda) [Language specific]
 
 ### Testing
 

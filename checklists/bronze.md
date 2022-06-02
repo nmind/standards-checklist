@@ -20,25 +20,20 @@
 
 ### Infrastructure
 
-- [ ] Package is under version control.
-- [ ] Readme is present.
-- [ ] License is present.
-- [ ] Issues tracking is enabled (either through GitHub or external site).
-- [ ] Maintainer / intent of not maintenance
-  - Adding NMinD template for users with important questions
+- [ ] Code is open source
+- [ ] Package is under version control
+- [ ] Readme is present
+- [ ] License is present
+- [ ] Issues tracking is enabled (either through GitHub or external site)
 - [ ] Digital Object Identifier (DOI) points to latest version (e.g., Zenodo)
-
-### Code
-
-No bronze-level requirements
+- [ ] All documented installation instructions can be successfully followed
 
 ### Testing
 
 Some of these can be enforced by GitHub.
 
-- [ ] If a package / compiled-code ― successfully builds / installs. If containerized, container available or build recipe succeeds
 - [ ] Provide / generate / point to test data
-- [ ] Provide instructions for users to run tests
+- [ ] Provide instructions for users to run tests that include instructions for evaluation for correct behavior
 
 ### Explaination of requirements
  - Pointers on how to add these things (TODO)

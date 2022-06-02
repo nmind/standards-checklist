@@ -17,20 +17,17 @@
     - [ ] style coverage
     - [ ] docstring coverage
 - [ ] Document functions, classes, modules, etc. (public + private docstring / help coverage ≥ 40%)
-
+- [ ] Has a documented style guide
+- [ ] Maintenance status is documented (e.g., expected turnaround time on pull requests, whether project is maintained)
 
 ### Infrastructure
 
+- [ ] Continuous integration
+  - [ ] runs tests and builds packages
+  - [ ] validates against style guide
 - [ ] Journal of Open Source Software submission
 - [ ] Contribution guide present
 - [ ] Code of Conduct present
-
-
-### Code
-
-- [ ] Has a documented style guide
-- [ ] Style is tested and validated
-
 
 ### Testing
 
