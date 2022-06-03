@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "NMiND Checklist",
+  "name": "NMiND Coding Standards Checklist",
   "icons": [
     {
       "src": "favicon.ico",
