@@ -3,44 +3,38 @@
     "@version": 1.1,
     "reproschema": "http://schema.repronim.org/"
   },
-  "tiers": [
-    {
-      "bronze": {
-        "intendedAudience": [
-          "users"
-        ],
-        "benefits": [
-          "Being able to cite the software in grant applications and publications",
-          "Reasonable degree of certainty other will be able to install and use your code"
-        ]
-      }
+  "tiers": {
+    "bronze": {
+      "intendedAudience": [
+        "users"
+      ],
+      "benefits": [
+        "Being able to cite the software in grant applications and publications",
+        "Reasonable degree of certainty other will be able to install and use your code"
+      ]
     },
-    {
-      "silver": {
-        "intendedAudience": [
-          "users"
-        ],
-        "benefits": [
-          "Accessibility across a range of user experience",
-          "Increasing the likelihood of your tool being used",
-          "Greater stability during development due to tests constantly checking code"
-        ]
-      }
+    "silver": {
+      "intendedAudience": [
+        "users"
+      ],
+      "benefits": [
+        "Accessibility across a range of user experience",
+        "Increasing the likelihood of your tool being used",
+        "Greater stability during development due to tests constantly checking code"
+      ]
     },
-    {
-      "gold": {
-        "intendedAudience": [
-          "users",
-          "developers"
-        ],
-        "benefits": [
-          "A greater sense of community guidelines, attracting contributors",
-          "Extensive documentation assists users with more advanced use cases",
-          "JoSS will increase the visibility of your project"
-        ]
-      }
+    "gold": {
+      "intendedAudience": [
+        "users",
+        "developers"
+      ],
+      "benefits": [
+        "A greater sense of community guidelines, attracting contributors",
+        "Extensive documentation assists users with more advanced use cases",
+        "JoSS will increase the visibility of your project"
+      ]
     }
-  ],
+  },
   "items": [
     {
       "prompt": "Software name",

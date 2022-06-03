@@ -43,3 +43,7 @@
 .MuiList-padding {
   padding-top: 0;
 }
+
+.MuiTooltip-tooltip {
+  white-space: pre-line;
+}

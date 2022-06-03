@@ -1,14 +1,41 @@
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Checkbox from '@material-ui/core/Checkbox';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+import { Checkbox, Container, List, ListItem, ListItemText, Typography } from '@mui/material';
 import standardChecklist from 'nmind-coding-standards-checklist/checklist.json';
+import Tier from './Tier';
 
 class CheckboxItem extends PureComponent {
   static propTypes = {
     item: PropTypes.object.isRequired,
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      checks: {}
+    };
+
+    this.handleCheck = this.handleCheck.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  checkValue(value) {
+    if (this.state.checks[value]) {
+      return this.state.checks[value];
+    } else {
+      return false;
+    }
+  }
+
+  handleCheck(event) {
+    const { name, checked } = event.target;
+    const newCheck = {};
+    newCheck[name] = checked;
+    this.setState((state, props) => ({
+      checks: {
+        ...this.state.checks,
+        ...newCheck}
+    }))
   }
 
   render() {
@@ -22,11 +49,12 @@ class CheckboxItem extends PureComponent {
       parenthetical = `(e.g., ${item.examples.join(', ')})`;
     }
     return (
-      <ListItem>
+      <ListItem key={ item.prompt }>
         <Checkbox 
-          name={ item.label }
-          checked={ false }
+          name={ item.prompt }
+          checked={ this.checkValue(item.prompt) }
           disabled={ false }
+          onChange={ this.handleCheck }
         />
         <ListItemText primary={ item.prompt } secondary={ parenthetical }/>
       </ListItem>
@@ -42,12 +70,12 @@ class Checklist extends PureComponent {
     return (
       <List disablePadding={ true }>
         { sections.map(section => (
-          <div>
-            <h2>{ section }</h2>
+          <Container key={section}>
+            <Typography variant="h2">{ section }</Typography>
             <List disablePadding={ true }>
-              { tiers.map(_tier => (Object.keys(_tier).map(tier => (
-                  <div>
-                  <h3>{ tier }</h3>
+              { Object.keys(tiers).map(tier => (
+                  <div key={ section + '-' + tier + '-div' }>
+                  <Tier key={ section + '-' + tier } tier={ tier } />
                   <List>
                     { items.filter(item => item.section === section && item.tier === tier).map(item => (
                         <CheckboxItem
@@ -57,9 +85,9 @@ class Checklist extends PureComponent {
                     ))}
                   </List>
                 </div>
-               )))) }
+               )) }
             </List>
-          </div>
+          </Container>
         )) }
       </List>
     );
