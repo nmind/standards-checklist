@@ -5,8 +5,9 @@ import standardChecklist from 'nmind-coding-standards-checklist/checklist.json';
 
 class Tier extends PureComponent {
   static propTypes = {
-    tier: PropTypes.string.isRequired,
+    tier: PropTypes.string.isRequired
   }
+
 
   render() {
     const { tiers } = standardChecklist;

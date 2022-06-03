@@ -21,6 +21,9 @@
         "Accessibility across a range of user experience",
         "Increasing the likelihood of your tool being used",
         "Greater stability during development due to tests constantly checking code"
+      ],
+      "prerequisiteTiers": [
+        "bronze"
       ]
     },
     "gold": {
@@ -32,6 +35,10 @@
         "A greater sense of community guidelines, attracting contributors",
         "Extensive documentation assists users with more advanced use cases",
         "JoSS will increase the visibility of your project"
+      ],
+      "prerequisiteTiers": [
+        "bronze",
+        "silver"
       ]
     }
   },
