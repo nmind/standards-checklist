@@ -14,8 +14,14 @@ class CheckboxItem extends PureComponent {
 
   constructor(props) {
     super(props);
-
     this.handleCheck = this.handleCheck.bind(this);
+  }
+
+  checkSubitems(item) {
+    const { checks } = this.props;
+    return item.hasOwnProperty('items') ? item.items.filter(subitem => {
+        return checks[subitem.prompt] === true
+      }).length === item.items.length : false;
   }
 
   checkValue(value) {
@@ -32,7 +38,7 @@ class CheckboxItem extends PureComponent {
   }
 
   render() {
-    const { item } = this.props;
+    const { checks, item } = this.props;
     let parenthetical = '';
     if (item.clarification && item.examples) {
       parenthetical = `(i.e., ${item.clarification}; e.g., ${item.examples.join(', ')})`;
@@ -42,7 +48,17 @@ class CheckboxItem extends PureComponent {
       parenthetical = `(e.g., ${item.examples.join(', ')})`;
     }
     return (
-      <ListItem key={ item.prompt }>
+      item.hasOwnProperty('items') ? <><ListItem key={ item.prompt }>
+      <Checkbox 
+        name={ item.prompt }
+        checked={ this.checkSubitems(item) }
+        disabled={ true }
+        onChange={ this.handleCheck }
+      />
+      <ListItemText primary={ item.prompt } secondary={ parenthetical }/>
+    </ListItem><ListItem>
+        <SubChecklist item={ item } checks={ checks } handleCheck={ this.handleCheck } />
+      </ListItem></> : <ListItem key={ item.prompt }>
         <Checkbox 
           name={ item.prompt }
           checked={ this.checkValue(item.prompt) }
@@ -70,12 +86,6 @@ class Checklist extends PureComponent {
   checkNumerator(tier, section) {
     const { items } = standardChecklist;
     const { checks } = this.state;
-    items.filter(item => item.section === section && item.tier === tier).map(item => item.prompt).forEach(item => {
-      console.log(item);
-      console.log(checks);
-      console.log(checks[item]);
-      return null;
-    })
     const numerator = items.filter(item => item.section === section && item.tier === tier).map(item => item.prompt).filter(item => checks[item] === true).length;
     return numerator;
   }
@@ -136,6 +146,38 @@ class Checklist extends PureComponent {
       </List>
     );
   }
+}
+
+class SubChecklist extends PureComponent {
+  static propTypes = {
+    checks: PropTypes.object.isRequired,
+    handleCheck: PropTypes.func.isRequired,
+    item: PropTypes.object.isRequired,
+  }
+
+  constructor(props) {
+    super(props);
+    this.handleCheck = this.handleCheck.bind(this);
+  }
+
+  handleCheck(event) {
+    this.props.handleCheck(event);
+  }
+
+  render() {
+    const { checks, item } = this.props;
+    return (
+      <List disablePadding={ true }>
+        { item.items.map(subitem => (
+            <CheckboxItem
+              key={ subitem.prompt }
+              item={ subitem }
+              checks={ checks }
+              handleCheck={ this.handleCheck }
+            />
+        ))}
+      </List>
+    )};
 }
 
 export default Checklist;
