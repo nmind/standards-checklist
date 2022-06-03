@@ -36,8 +36,7 @@ class CheckboxItem extends PureComponent {
 
 class Checklist extends PureComponent {
   render() {
-    const { items } = standardChecklist;
-    const tiers = [...new Set(items.filter(item => item.tier).map(item => item.tier))];
+    const { items, tiers } = standardChecklist;
     const sections = [...new Set(items.filter(item => item.section).map(item => item.section))];
 
     return (
@@ -46,7 +45,7 @@ class Checklist extends PureComponent {
           <div>
             <h2>{ section }</h2>
             <List disablePadding={ true }>
-              { tiers.map(tier => (
+              { tiers.map(_tier => (Object.keys(_tier).map(tier => (
                   <div>
                   <h3>{ tier }</h3>
                   <List>
@@ -58,7 +57,7 @@ class Checklist extends PureComponent {
                     ))}
                   </List>
                 </div>
-               )) }
+               )))) }
             </List>
           </div>
         )) }
