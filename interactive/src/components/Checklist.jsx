@@ -84,10 +84,22 @@ class Checklist extends PureComponent {
     this.handleCheck = this.handleCheck.bind(this);
   }
 
+  checkDenominator(tier, prereq, section) {
+    const { items, tiers } = standardChecklist;
+    return items.filter(item => item.section === section && item.tier === prereq).length + (tiers[prereq].hasOwnProperty('prerequisiteTiers') ? tiers[prereq].prerequisiteTiers.length : 0)
+  }
+
   checkNumerator(tier, section) {
-    const { items } = standardChecklist;
+    const { items, tiers } = standardChecklist;
     const { checks } = this.state;
-    const numerator = items.filter(item => item.section === section && item.tier === tier).map(item => item.prompt).filter(item => checks[item] === true).length;
+    let numerator = items.filter(item => item.section === section && item.tier === tier).map(item => item.prompt).filter(item => checks[item] === true).length;
+    if (tiers[tier].hasOwnProperty('prerequisiteTiers')) {
+      tiers[tier].prerequisiteTiers.forEach(prereq => {
+        if (this.checkNumerator(prereq, section) >= this.checkDenominator(tier, prereq, section)) {
+          numerator += 1;
+        } 
+      });
+    };
     return numerator;
   }
 
@@ -112,7 +124,7 @@ class Checklist extends PureComponent {
         return null;
       } else {
         return tiers[tier].prerequisiteTiers.map((prereq, index) => {
-          const denominator = items.filter(item => item.section === section && item.tier === prereq).length;
+          const denominator = this.checkDenominator(tier, prereq, section);
           return (
             <ProgressLabelled key={ tier + "-" + section + "-prerequisites-" + index.toString() } tier={ prereq } numerator={ this.checkNumerator(prereq, section) } denominator={ denominator } />
           );

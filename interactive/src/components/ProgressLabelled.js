@@ -1,6 +1,6 @@
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Box, CircularProgress, ListItem, ListItemText, Typography } from '@mui/material';
+import { Box, Checkbox, CircularProgress, ListItem, ListItemText, Typography } from '@mui/material';
 
 class ProgressLabelled extends PureComponent {
   static propTypes = {
@@ -14,6 +14,11 @@ class ProgressLabelled extends PureComponent {
 
     return (
       <ListItem key={ tier + "-prerequisite" }>
+        <Checkbox 
+          name={ tier + " for prerequisite" }
+          checked={ numerator >= denominator }
+          disabled={ true }
+        />
         <Box sx={{ position: "relative", display: "inline-flex" }}>
           <CircularProgress variant="determinate" value={ (numerator / denominator) * 100 } />
           <Box sx={{
