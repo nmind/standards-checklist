@@ -34,6 +34,7 @@ class CheckboxItem extends PureComponent {
   }
 
   handleCheck(event) {
+    console.log(event)
     this.props.handleCheck(event);
   }
 
@@ -91,6 +92,7 @@ class Checklist extends PureComponent {
   }
 
   handleCheck(event) {
+    console.log(event);
     const { name, checked } = event.target;
     const newCheck = {};
     newCheck[name] = checked;
@@ -126,7 +128,7 @@ class Checklist extends PureComponent {
             <List disablePadding={ true }>
               { Object.keys(tiers).map(tier => (
                   <div key={ section + '-' + tier + '-div' }>
-                  <Tier key={ section + '-' + tier } tier={ tier } section={ section } />
+                  <Tier key={ section + '-' + tier } tier={ tier } tiers={ tiers } />
                   <List>
                     { prerequisites(tier, section) }
                     { items.filter(item => item.section === section && item.tier === tier).map(item => (

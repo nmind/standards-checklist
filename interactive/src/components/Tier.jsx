@@ -1,17 +1,14 @@
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Container, List, ListItem, Tooltip, Typography } from '@mui/material';
-import standardChecklist from 'nmind-coding-standards-checklist/checklist.json';
 
 class Tier extends PureComponent {
   static propTypes = {
     tier: PropTypes.string.isRequired
   }
 
-
   render() {
-    const { tiers } = standardChecklist;
-    const { tier } = this.props;
+    const { tier, tiers } = this.props;
 
     const title = Object.keys(tiers).filter(_tier => _tier === tier).map(_tier => {
       return (
