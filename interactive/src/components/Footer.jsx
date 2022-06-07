@@ -1,3 +1,16 @@
+/* Copyright 2022 NMIND
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    https://github.com/nmind/standards-checklist/blob/main/LICENSE
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. */
 import { PureComponent } from 'react';
 import { dom } from '@fortawesome/fontawesome-svg-core'
 import yaml from 'js-yaml';
@@ -45,7 +58,7 @@ export default class Footer extends PureComponent {
           }
         </ul>
       </div>
-      <div className="page__footer-copyright">&copy; 2022 NMIND. Powered by <a href="https://reactjs.org/" rel="nofollow">React</a>.</div>
+      <div className="page__footer-copyright">&copy; 2022 NMIND. Licensed under <a href="https://github.com/nmind/standards-checklist/blob/main/LICENSE">Apache-2.0</a>. Powered by <a href="https://reactjs.org/" rel="nofollow">React</a>.</div>
     </footer></div>
     );
   }

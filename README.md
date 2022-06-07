@@ -1,6 +1,6 @@
 ## Coding Standards Certification
 
-This repo contains checklists (still drafts) of bronze, silver, and gold NMiND certifications.
+This repo contains checklists (still drafts) of bronze, silver, and gold NMIND certifications.
 Inspired from the [original hackmd document](https://hackmd.io/@mathiasg/SJCPHKZKu).
 
 ---
