@@ -14,7 +14,7 @@ limitations under the License. */
 import logo from './logo.jsx.svg';
 import './nmind.orgExcerpts.css';
 import './App.css';
-import Checklist from './components/Checklist';
+import { Checklist } from './components/Checklist';
 import Footer from './components/Footer';
 
 function App() {

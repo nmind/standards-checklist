@@ -2,7 +2,6 @@ import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Checkbox, Container, List, ListItem, ListItemText, Typography } from '@mui/material';
 import standardChecklist from 'nmind-coding-standards-checklist/checklist.json';
-import ProgressLabelled from './ProgressLabelled';
 import Tier from './Tier';
 
 class CheckboxItem extends PureComponent {
@@ -34,7 +33,6 @@ class CheckboxItem extends PureComponent {
   }
 
   handleCheck(event) {
-    console.log(event)
     this.props.handleCheck(event);
   }
 
@@ -81,6 +79,8 @@ class Checklist extends PureComponent {
       numerator: {}
     };
 
+    this.checkDenominator = this.checkDenominator.bind(this);
+    this.checkNumerator = this.checkNumerator.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
   }
 
@@ -104,7 +104,6 @@ class Checklist extends PureComponent {
   }
 
   handleCheck(event) {
-    console.log(event);
     const { name, checked } = event.target;
     const newCheck = {};
     newCheck[name] = checked;
@@ -119,19 +118,6 @@ class Checklist extends PureComponent {
     const { items, tiers } = standardChecklist;
     const sections = [...new Set(items.filter(item => item.section).map(item => item.section))];
 
-    const prerequisites = (tier, section) => {
-      if (!tiers[tier].hasOwnProperty('prerequisiteTiers')) {
-        return null;
-      } else {
-        return tiers[tier].prerequisiteTiers.map((prereq, index) => {
-          const denominator = this.checkDenominator(tier, prereq, section);
-          return (
-            <ProgressLabelled key={ tier + "-" + section + "-prerequisites-" + index.toString() } tier={ prereq } numerator={ this.checkNumerator(prereq, section) } denominator={ denominator } />
-          );
-        });
-      }
-    }
-
     return (
       <List disablePadding={ true }>
         { sections.map(section => (
@@ -140,18 +126,7 @@ class Checklist extends PureComponent {
             <List disablePadding={ true }>
               { Object.keys(tiers).map(tier => (
                   <div key={ section + '-' + tier + '-div' }>
-                  <Tier key={ section + '-' + tier } tier={ tier } tiers={ tiers } />
-                  <List>
-                    { prerequisites(tier, section) }
-                    { items.filter(item => item.section === section && item.tier === tier).map(item => (
-                        <CheckboxItem
-                          key={ item.prompt }
-                          item={ item }
-                          checks={ this.state.checks }
-                          handleCheck={ this.handleCheck }
-                        />
-                    ))}
-                  </List>
+                  <Tier key={ section + '-' + tier } checkDenominator={ this.checkDenominator } checkNumerator={ this.checkNumerator } checks={ this.state.checks } handleCheck={ this.handleCheck } {...{ items, section, tier, tiers }} />
                 </div>
                )) }
             </List>
@@ -194,4 +169,4 @@ class SubChecklist extends PureComponent {
     )};
 }
 
-export default Checklist;
+export { CheckboxItem, Checklist };

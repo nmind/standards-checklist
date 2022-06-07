@@ -2,6 +2,35 @@ import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Checkbox, CircularProgress, ListItem, ListItemText, Typography } from '@mui/material';
 
+class ProgressCircle extends PureComponent {
+  static propTypes = {
+    denominator: PropTypes.number.isRequired,
+    numerator: PropTypes.number.isRequired
+  }
+
+  render() {
+    const { denominator, numerator } = this.props;
+
+    return (
+      <Box sx={{ position: "relative", display: "inline-flex" }}>
+          <CircularProgress variant="determinate" value={ (numerator / denominator) * 100 } />
+          <Box sx={{
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0,
+            position: "absolute",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}>
+            <Typography><sup>{ numerator }</sup>/<sub>{ denominator }</sub></Typography>
+          </Box>
+        </Box>
+    );
+  }
+}
+
 class ProgressLabelled extends PureComponent {
   static propTypes = {
     denominator: PropTypes.number.isRequired,
@@ -19,21 +48,8 @@ class ProgressLabelled extends PureComponent {
           checked={ numerator >= denominator }
           disabled={ true }
         />
-        <Box sx={{ position: "relative", display: "inline-flex" }}>
-          <CircularProgress variant="determinate" value={ (numerator / denominator) * 100 } />
-          <Box sx={{
-            top: 0,
-            left: 0,
-            bottom: 0,
-            right: 0,
-            position: "absolute",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}>
-            <Typography><sup>{ numerator }</sup>/<sub>{ denominator }</sub></Typography>
-          </Box>
-        </Box><ListItemText primary={ "All items from " + tier + " tier" } />
+        <ProgressCircle {...{ numerator, denominator }} />
+        <ListItemText primary={ "All items from " + tier + " tier" } />
       </ListItem>
     );
   }
