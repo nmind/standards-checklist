@@ -1,19 +1,17 @@
 ## Coding Standards Certification
 
-This repo contains checklists (still drafts) of bronze, silver, and gold NMiND certifications.
+This repo contains [checklists](https://www.nmind.org/standards-checklist) (still drafts) of bronze, silver, and gold NMIND certifications.
 Inspired from the [original hackmd document](https://hackmd.io/@mathiasg/SJCPHKZKu).
 
 ---
 
 ### Bronze Tier
-[Checklist](./checklists/bronze.md)
 
 #### Bronze Benefits
 - Being able to cite the software in grant applications and publications! (DOI)
 - Reasonable degree of certainty other will be able to install and use your code!
 
 ### Silver Tier
-[Checklist](./checklists/silver.md)
 
 #### Silver Benefits
 - All benefits of bronze plus...
@@ -22,7 +20,6 @@ Inspired from the [original hackmd document](https://hackmd.io/@mathiasg/SJCPHKZ
 - Greater stability during development due to tests constantly checking code.
 
 ### Gold Tier
-[Checklist](./checklists/gold.md)
 
 #### Gold Benefits
 - All benefits of silver plus...

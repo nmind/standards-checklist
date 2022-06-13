@@ -1,0 +1,9 @@
+{
+  "license": "Apache-2.0",
+  "name": "nmind-coding-standards-checklist",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nmind/standards-checklist"
+  },
+  "version": "1.0.0-dev"
+}

@@ -1,0 +1,85 @@
+
+.page__footer{
+  clear:both;
+  float:left;
+  margin-left:0;
+  margin-right:0;
+  width:100%;
+  margin-top:3em;
+  color:#646769;
+  -webkit-animation:intro 0.3s both;
+  animation:intro 0.3s both;
+  -webkit-animation-delay:0.45s;
+  animation-delay:0.45s;
+  background-color:#f2f3f3
+}
+.page__footer::after{
+  clear:both;
+  content:"";
+  display:table
+}
+.page__footer footer{
+  clear:both;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:2em;
+  max-width:100%;
+  padding:0 1em 2em
+}
+.page__footer footer::after{
+  clear:both;
+  content:"";
+  display:table
+}
+@media (min-width: 80em){
+  .page__footer footer{
+      max-width:1280px
+  }
+}
+.page__footer a{
+  color:inherit;
+  text-decoration:none
+}
+.page__footer a:hover{
+  text-decoration:underline
+}
+.page__footer .fas,.page__footer .fab,.page__footer .far,.page__footer .fal{
+  color:#646769
+}
+.page__footer-copyright{
+  font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;
+  font-size:.6875em
+}
+.page__footer-follow ul{
+  margin:0;
+  padding:0;
+  list-style-type:none
+}
+.page__footer-follow li{
+  display:inline-block;
+  padding-top:5px;
+  padding-bottom:5px;
+  font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;
+  font-size:.75em;
+  text-transform:uppercase
+}
+.page__footer-follow li+li:before{
+  content:"";
+  padding-right:5px
+}
+.page__footer-follow a{
+  padding-right:10px;
+  font-weight:bold
+}
+.page__footer-follow .social-icons a{
+  white-space:nowrap
+}
+:-webkit-full-screen-ancestor .masthead,:-webkit-full-screen-ancestor .page__footer{
+  position:static
+}
+@media print{
+  .page__footer,{
+    display:none !important;
+    height:1px !important
+  }
+}
