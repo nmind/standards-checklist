@@ -84,9 +84,9 @@ class Checklist extends PureComponent {
     this.handleCheck = this.handleCheck.bind(this);
   }
 
-  checkDenominator(tier, prereq, section) {
+  checkDenominator(prereq, section) {
     const { items, tiers } = standardChecklist;
-    return items.filter(item => item.section === section && item.tier === prereq).length + (tiers[prereq].hasOwnProperty('prerequisiteTiers') ? tiers[prereq].prerequisiteTiers.length : 0)
+    return items.filter(item => item.section === section && item.tier === prereq).length + (tiers.hasOwnProperty(prereq) && tiers[prereq].hasOwnProperty('prerequisiteTiers') ? tiers[prereq].prerequisiteTiers.length : 0)
   }
 
   checkNumerator(tier, section) {
@@ -95,7 +95,7 @@ class Checklist extends PureComponent {
     let numerator = items.filter(item => item.section === section && item.tier === tier).map(item => item.prompt).filter(item => checks[item] === true).length;
     if (tiers[tier].hasOwnProperty('prerequisiteTiers')) {
       tiers[tier].prerequisiteTiers.forEach(prereq => {
-        if (this.checkNumerator(prereq, section) >= this.checkDenominator(tier, prereq, section)) {
+        if (this.checkNumerator(prereq, section) >= this.checkDenominator(prereq, section)) {
           numerator += 1;
         } 
       });

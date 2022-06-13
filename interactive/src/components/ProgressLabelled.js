@@ -14,19 +14,19 @@ class ProgressCircle extends PureComponent {
     return (
       <Box sx={{ position: "relative", display: "inline-flex" }}>
           <CircularProgress variant="determinate" value={ (numerator / denominator) * 100 } />
-          <Box sx={{
-            top: 0,
-            left: 0,
-            bottom: 0,
-            right: 0,
-            position: "absolute",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}>
-            <Typography><sup>{ numerator }</sup>/<sub>{ denominator }</sub></Typography>
-          </Box>
+        <Box sx={{
+          top: 0,
+          left: 0,
+          bottom: 0,
+          right: 0,
+          position: "absolute",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}>
+          <Typography><sup>{ numerator }</sup>/<sub>{ denominator }</sub></Typography>
         </Box>
+      </Box>
     );
   }
 }
@@ -48,11 +48,11 @@ class ProgressLabelled extends PureComponent {
           checked={ numerator >= denominator }
           disabled={ true }
         />
-        <ProgressCircle {...{ numerator, denominator }} />
+        <ProgressCircle {...{ numerator, denominator }}/>&nbsp;&nbsp;
         <ListItemText primary={ "All items from " + tier + " tier" } />
       </ListItem>
     );
   }
 }
 
-export default ProgressLabelled;
+export { ProgressCircle, ProgressLabelled };
