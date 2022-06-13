@@ -1,11 +1,39 @@
-<?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
- "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
- width="803.000000pt" height="803.000000pt" viewBox="0 0 803.000000 803.000000"
- preserveAspectRatio="xMidYMid meet">
-<metadata>
-Created by potrace 1.14, written by Peter Selinger 2001-2017
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+  xmlnsRdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlnsRdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlnsDc="http://purl.org/dc/elements/1.1/"
+  xmlnsFoaf="http://xmlns.com/foaf/spec/"
+  width="803.000000pt" height="803.000000pt"
+  viewBox="0 0 803.000000 803.000000"
+  preserveAspectRatio="xMidYMid meet">
+<metadata id="creator">
+  <rdfRDF>
+    <dcStillImage rdfabout="" rdfscomment="Created by potrace 1.14, written by Peter Selinger 2001-2017">
+      <dcformat>image/svg+xml</dcformat>
+      <dctype rdfresource="http://purl.org/dc/dcmitype/StillImage"/>
+      <dccreator rdfresource="http://potrace.sourceforge.net/download/1.14/potrace-1.14.tar.gz"/>
+    </dcStillImage>
+    <dcSoftware rdfabout="http://potrace.sourceforge.net/download/1.14/potrace-1.14.tar.gz">
+      <dctitle>potrace</dctitle>
+      <dcversion>1.14</dcversion>
+      <dcdate>2017-02-19</dcdate>
+      <dccreator rdfresource="#PeterSelinger"/>
+    </dcSoftware>
+    <foafPerson rdfabout="#PeterSelinger">
+      <foafgivenName>Peter</foafgivenName>
+      <foafsurName>Selinger</foafsurName>
+    </foafPerson>
+  </rdfRDF>
+</metadata>
+<metadata id="license">
+  <rdfRDF>
+    <dcStillImage rdfabout="">
+      <dcformat>image/svg+xml</dcformat>
+      <dctype rdfresource="http://purl.org/dc/dcmitype/StillImage" />
+      <dclicense rdfresource="https://github.com/nmind/standards-checklist/blob/main/LICENSE" />
+    </dcStillImage>
+  </rdfRDF>
 </metadata>
 <g transform="translate(0.000000,803.000000) scale(0.100000,-0.100000)"
 fill="#7FB2BF" stroke="none">
