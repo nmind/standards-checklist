@@ -16,7 +16,7 @@
 - [ ] Description of required input parameters for user-facing functions with reasonable description of inputs (i.e. "Nifti of brain mask in MNI" vs. "An image file")
 - [ ] Description of output(s)
 - [ ] User installation instructions available
-- [ ] Dependencies listed (external and within-langugage requirements)
+- [ ] Dependencies listed (external and within-language requirements)
 
 ### Infrastructure
 
