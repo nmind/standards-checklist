@@ -118,7 +118,7 @@
     },
     {
       "prompt": "Dependencies listed",
-      "clarification": "external and within-langugage requirements",
+      "clarification": "external and within-language requirements",
       "tier": "bronze",
       "section": "documentation",
       "type": "checkbox"
@@ -195,7 +195,7 @@
       "type": "checkbox"
     },
     {
-      "prompt": "Any alternative usage that is advertised is throroughly documented",
+      "prompt": "Any alternative usage that is advertised is thoroughly documented",
       "tier": "silver",
       "section": "documentation",
       "type": "checkbox"
