@@ -11,7 +11,7 @@
 
 - [ ] Background/significance of program
 - [ ] One or more tutorial to showcase the multiple of the program's usages (if program has multiple usages)
-- [ ] Any alternative usage that is advertised is throroughly documented
+- [ ] Any alternative usage that is advertised is thoroughly documented
 - [ ] Thorough description of required and optional input parameters
 - [ ] Document public functions (docstring / help coverage ≥ 20%)
 - [ ] A statement of supported operating systems / environments
@@ -28,7 +28,7 @@
 - [ ] Test coverage > 50%
 
 ### Benefits of Silver certification:
-In addition to Bronze beneifts...
+In addition to Bronze benefits...
 - Accessibility across a range of user experience.
 - Greater portability of code (with containers) makes it more available to users, increasing the likelihood of your tool being used.
 - Greater stability during development due to tests constantly checking code.
