@@ -1,0 +1,384 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "reproschema": "http://schema.repronim.org/"
+  },
+  "tiers": {
+    "bronze": {
+      "intendedAudience": [
+        "users"
+      ],
+      "benefits": [
+        "Being able to cite the software in grant applications and publications",
+        "Reasonable degree of certainty other will be able to install and use your code"
+      ]
+    },
+    "silver": {
+      "intendedAudience": [
+        "users"
+      ],
+      "benefits": [
+        "Accessibility across a range of user experience",
+        "Increasing the likelihood of your tool being used",
+        "Greater stability during development due to tests constantly checking code"
+      ],
+      "prerequisiteTiers": [
+        "bronze"
+      ]
+    },
+    "gold": {
+      "intendedAudience": [
+        "users",
+        "developers"
+      ],
+      "benefits": [
+        "A greater sense of community guidelines, attracting contributors",
+        "Extensive documentation assists users with more advanced use cases",
+        "JoSS will increase the visibility of your project"
+      ],
+      "prerequisiteTiers": [
+        "bronze",
+        "silver"
+      ]
+    }
+  },
+  "items": [
+    {
+      "prompt": "Software name",
+      "type": "text"
+    },
+    {
+      "prompt": "URLs",
+      "items": [
+        {
+          "prompt": "URL",
+          "type": "text"
+        },
+        {
+          "prompt": "type",
+          "type": "select",
+          "options": [
+            "landing page",
+            "source code",
+            "documentation"
+          ]
+        }
+      ],
+      "type": "list"
+    },
+    {
+      "id": "bronze_doc_1",
+      "prompt": "Landing page (e.g., GitHub README, website) provides a link to documentation and brief description of what program does",
+      "tier": "bronze",
+      "section": "documentation",
+      "type": "checkbox"
+    },
+    {
+      "id": "bronze_doc_2",
+      "prompt": "Documentation is up to date with version of software",
+      "tier": "bronze",
+      "section": "documentation",
+      "type": "checkbox"
+    },
+    {
+      "id": "bronze_doc_3",
+      "prompt": "Typical intended usage is described",
+      "tier": "bronze",
+      "section": "documentation",
+      "type": "checkbox"
+    },
+    {
+      "id": "bronze_doc_4",
+      "prompt": "An example of its usage is shown",
+      "tier": "bronze",
+      "section": "documentation",
+      "type": "checkbox"
+    },
+    {
+      "id": "bronze_doc_5",
+      "prompt": "Document functions intended to be used by users",
+      "clarification": "public function docstring / help coverage \u2265 10%",
+      "tier": "bronze",
+      "section": "documentation",
+      "type": "checkbox"
+    },
+    {
+      "id": "bronze_doc_6",
+      "prompt": "Description of required input parameters for user-facing functions with reasonable description of inputs",
+      "clarification": "\"NIfTI of brain mask in MNI\" vs. \"An image file\"",
+      "tier": "bronze",
+      "section": "documentation",
+      "type": "checkbox"
+    },
+    {
+      "id": "bronze_doc_7",
+      "prompt": "Description of output(s)",
+      "tier": "bronze",
+      "section": "documentation",
+      "type": "checkbox"
+    },
+    {
+      "id": "bronze_doc_8",
+      "prompt": "User installation instructions available",
+      "tier": "bronze",
+      "section": "documentation",
+      "type": "checkbox"
+    },
+    {
+      "id": "bronze_doc_9",
+      "prompt": "Dependencies listed",
+      "clarification": "external and within-language requirements",
+      "tier": "bronze",
+      "section": "documentation",
+      "type": "checkbox"
+    },
+    {
+      "id": "bronze_inf_1",
+      "prompt": "Code is open source",
+      "tier": "bronze",
+      "section": "infrastructure",
+      "type": "checkbox"
+    },
+    {
+      "id": "bronze_inf_2",
+      "prompt": "Package is under version control",
+      "tier": "bronze",
+      "section": "infrastructure",
+      "type": "checkbox"
+    },
+    {
+      "id": "bronze_inf_3",
+      "prompt": "Readme is present",
+      "tier": "bronze",
+      "section": "infrastructure",
+      "type": "checkbox"
+    },
+    {
+      "id": "bronze_inf_4",
+      "prompt": "License is present",
+      "tier": "bronze",
+      "section": "infrastructure",
+      "type": "checkbox"
+    },
+    {
+      "id": "bronze_inf_5",
+      "prompt": "Issues tracking is enabled",
+      "clarification": "either through GitHub or external site",
+      "tier": "bronze",
+      "section": "infrastructure",
+      "type": "checkbox"
+    },
+    {
+      "id": "bronze_inf_6",
+      "prompt": "Digital Object Identifier (DOI) points to latest version",
+      "examples": [
+        "Zenodo"
+      ],
+      "tier": "bronze",
+      "section": "infrastructure",
+      "type": "checkbox"
+    },
+    {
+      "id": "bronze_inf_7",
+      "prompt": "All documented installation instructions can be successfully followed",
+      "tier": "bronze",
+      "section": "infrastructure",
+      "type": "checkbox"
+    },
+    {
+      "id": "bronze_tst_1",
+      "prompt": "Provide / generate / point to test data",
+      "tier": "bronze",
+      "section": "testing",
+      "type": "checkbox"
+    },
+    {
+      "id": "bronze_tst_2",
+      "prompt": "Provide instructions for users to run tests that include instructions for evaluation for correct behavior",
+      "tier": "bronze",
+      "section": "testing",
+      "type": "checkbox"
+    },
+    {
+      "id": "silver_doc_1",
+      "prompt": "Background/significance of program",
+      "tier": "silver",
+      "section": "documentation",
+      "type": "checkbox"
+    },
+    {
+      "id": "silver_doc_2",
+      "prompt": "One or more tutorial to showcase the multiple of the program's usages",
+      "clarification": "if program has multiple usages",
+      "tier": "silver",
+      "section": "documentation",
+      "type": "checkbox"
+    },
+    {
+      "id": "silver_doc_3",
+      "prompt": "Any alternative usage that is advertised is thoroughly documented",
+      "tier": "silver",
+      "section": "documentation",
+      "type": "checkbox"
+    },
+    {
+      "id": "silver_doc_4",
+      "prompt": "Thorough description of required and optional input parameters",
+      "tier": "silver",
+      "section": "documentation",
+      "type": "checkbox"
+    },
+    {
+      "id": "silver_doc_5",
+      "prompt": "Document public functions",
+      "clarification": "public function docstring / help coverage \u2265 20%",
+      "tier": "silver",
+      "section": "documentation",
+      "type": "checkbox"
+    },
+    {
+      "id": "silver_doc_6",
+      "prompt": "A statement of supported operating systems / environments",
+      "clarification": "could be a container recipe",
+      "tier": "silver",
+      "section": "documentation",
+      "type": "checkbox"
+    },
+    {
+      "id": "silver_inf_1",
+      "prompt": "Issue template(s) available",
+      "clarification": "information requested by developers",
+      "tier": "silver",
+      "section": "infrastructure",
+      "type": "checkbox"
+    },
+    {
+      "id": "silver_inf_2",
+      "prompt": "Continuous integration runs tests",
+      "tier": "silver",
+      "section": "infrastructure",
+      "type": "checkbox"
+    },
+    {
+      "id": "silver_inf_3",
+      "prompt": "No excessive files included",
+      "clarification": "unused files / cache",
+      "examples": [
+        ".gitignore"
+      ],
+      "tier": "silver",
+      "section": "infrastructure",
+      "type": "checkbox"
+    },
+    {
+      "id": "silver_tst_1",
+      "prompt": "Some form of testing suite present",
+      "tier": "silver",
+      "section": "testing",
+      "type": "checkbox"
+    },
+    {
+      "id": "silver_tst_2",
+      "prompt": "Test coverage > 50%",
+      "tier": "silver",
+      "section": "testing",
+      "type": "checkbox"
+    },
+    {
+      "id": "gold_doc_1",
+      "prompt": "Continuous integration badges in README for build status",
+      "tier": "gold",
+      "section": "documentation",
+      "type": "checkbox"
+    },
+    {
+      "id": "gold_doc_2",
+      "prompt": "Continuous integration badges in README for tests passing",
+      "tier": "gold",
+      "section": "documentation",
+      "type": "checkbox"
+    },
+    {
+      "id": "gold_doc_3",
+      "prompt": "Continuous integration badges in README for coverage",
+      "tier": "gold",
+      "section": "documentation",
+      "type": "checkbox"
+    },
+    {
+      "id": "gold_doc_4",
+      "prompt": "Document functions, classes, modules, etc.",
+      "clarification": "public + private docstring / help coverage \u2265 40%",
+      "tier": "gold",
+      "section": "documentation",
+      "type": "checkbox"
+    },
+    {
+      "id": "gold_doc_5",
+      "prompt": "Has a documented style guide",
+      "tier": "gold",
+      "section": "documentation",
+      "type": "checkbox"
+    },
+    {
+      "id": "gold_doc_6",
+      "prompt": "Maintenance status is documented",
+      "examples": [
+        "expected turnaround time on pull requests",
+        "whether project is maintained"
+      ],
+      "tier": "gold",
+      "section": "documentation",
+      "type": "checkbox"
+    },
+    {
+      "id": "gold_inf_1",
+      "prompt": "Continuous integration builds packages",
+      "tier": "gold",
+      "section": "infrastructure",
+      "type": "checkbox"
+    },
+    {
+      "id": "gold_inf_2",
+      "prompt": "Continuous integration validates style",
+      "tier": "gold",
+      "section": "infrastructure",
+      "type": "checkbox"
+    },
+    {
+      "id": "gold_inf_3",
+      "prompt": "Journal of Open Source Software submission",
+      "tier": "gold",
+      "section": "infrastructure",
+      "type": "checkbox"
+    },
+    {
+      "id": "gold_inf_4",
+      "prompt": "Contribution guide present",
+      "tier": "gold",
+      "section": "infrastructure",
+      "type": "checkbox"
+    },
+    {
+      "id": "gold_inf_5",
+      "prompt": "Code of Conduct present",
+      "tier": "gold",
+      "section": "infrastructure",
+      "type": "checkbox"
+    },
+    {
+      "id": "gold_tst_1",
+      "prompt": "Test coverage > 90%",
+      "tier": "gold",
+      "section": "testing",
+      "type": "checkbox"
+    },
+    {
+      "id": "gold_tst_2",
+      "prompt": "Benchmarking information is provided for examples",
+      "tier": "gold",
+      "section": "testing",
+      "type": "checkbox"
+    }
+  ]
+}
