@@ -256,21 +256,19 @@
       "type": "checkbox"
     },
     {
-      "prompt": "Continuous integration badges in README for",
-      "items": [
-        {
-          "prompt": "build status",
-          "type": "checkbox"
-        },
-        {
-          "prompt": "tests passing",
-          "type": "checkbox"
-        },
-        {
-          "prompt": "coverage",
-          "type": "checkbox"
-        }
-      ],
+      "prompt": "Continuous integration badges in README for build status",
+      "tier": "gold",
+      "section": "documentation",
+      "type": "checkbox"
+    },
+    {
+      "prompt": "Continuous integration badges in README for tests passing",
+      "tier": "gold",
+      "section": "documentation",
+      "type": "checkbox"
+    },
+    {
+      "prompt": "Continuous integration badges in README for coverage",
       "tier": "gold",
       "section": "documentation",
       "type": "checkbox"
@@ -299,17 +297,13 @@
       "type": "checkbox"
     },
     {
-      "prompt": "Continuous integration",
-      "items": [
-        {
-          "prompt": "builds packages",
-          "type": "checkbox"
-        },
-        {
-          "prompt": "validates style",
-          "type": "checkbox"
-        }
-      ],
+      "prompt": "Continuous integration builds packages",
+      "tier": "gold",
+      "section": "infrastructure",
+      "type": "checkbox"
+    },
+    {
+      "prompt": "Continuous integration validates style",
       "tier": "gold",
       "section": "infrastructure",
       "type": "checkbox"
