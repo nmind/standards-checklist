@@ -11,7 +11,7 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License. */
-import { PureComponent } from 'react';
+import { PureComponent, React } from 'react';
 import { dom } from '@fortawesome/fontawesome-svg-core'
 import yaml from 'js-yaml';
 
@@ -41,7 +41,7 @@ export default class Footer extends PureComponent {
 
   render() {
     const { footer } = this.state;
-    const footerLinks = footer.hasOwnProperty('links') ? footer.links : [];
+    const footerLinks = Object.prototype.hasOwnProperty.call(footer, 'links') ? footer.links : [];
     dom.watch();
     return (
     <div id="footer" className="page__footer"><footer>

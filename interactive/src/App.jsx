@@ -13,6 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License. */
 import logo from './logo.jsx.svg';
 import './nmind.orgExcerpts.css';
+import { React } from 'react';
 import './App.css';
 import { Checklist } from './components/Checklist';
 import Footer from './components/Footer';

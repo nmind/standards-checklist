@@ -1,4 +1,4 @@
-import { PureComponent } from 'react';
+import { PureComponent, React } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Checkbox, CircularProgress, ListItem, ListItemText, Typography } from '@mui/material';
 

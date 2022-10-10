@@ -1,4 +1,4 @@
-import { PureComponent } from 'react';
+import { PureComponent, React } from 'react';
 import PropTypes from 'prop-types';
 import { Accordion, AccordionDetails, AccordionSummary, Container, List, ListItem, Tooltip, Typography } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -7,54 +7,84 @@ import { ProgressCircle, ProgressLabelled } from './ProgressLabelled';
 
 class Tier extends PureComponent {
   static propTypes = {
-    tier: PropTypes.string.isRequired
+    checkDenominator: PropTypes.func.isRequired,
+    checkNumerator: PropTypes.func.isRequired,
+    checks: PropTypes.object.isRequired,
+    handleCheck: PropTypes.func.isRequired,
+    items: PropTypes.array.isRequired,
+    overrides: PropTypes.array.isRequired,
+    section: PropTypes.string.isRequired,
+    tier: PropTypes.string.isRequired,
+    tiers: PropTypes.array.isRequired,
+    toggleTier: PropTypes.func.isRequired,
   }
 
   constructor(props) {
     super(props);
-    this.state = {
-      expanded: false,
-      override: false
-    };
+    const { tier, tiers } = this.props;
     this.prerequisites = this.prerequisites.bind(this);
+    this.toggleTier = this.toggleTier.bind(this);
+    this.state = {
+      expanded: !Object.prototype.hasOwnProperty.call(tiers[tier], 'prerequisiteTiers'),
+    };
   }
 
-  onChange = () => {
-    const { expanded } = this.state;
-    this.setState({ expanded: !expanded, override: true });
+  static getDerivedStateFromProps(props, state) {
+    const { checkDenominator, checkNumerator, overrides, section, tier, tiers, toggleTier } = props;
+    const { expanded } = state;
+    const override = overrides.includes(`${tier}-${section}`);
+    const allChecked = checkNumerator(tier, section) >= checkDenominator(tier, section);
+    let nowExpanded = expanded;
+    if (!override) {
+      if (Object.prototype.hasOwnProperty.call(tiers[tier], 'prerequisiteTiers')) {
+        let prereqs = [];
+          tiers[tier].prerequisiteTiers.forEach(prereq => {
+            const numerator = checkNumerator(prereq, section);
+            const denominator = checkDenominator(prereq, section);
+            prereqs.push(numerator >= denominator);
+          });
+        if (prereqs.every(item => item === true)) {
+          // expand when all prerequisites are met
+          nowExpanded = !allChecked;
+        }
+      } else if (!allChecked) {
+        nowExpanded = true;
+      } else if (allChecked) {
+        nowExpanded = false;
+      }
+    } else if ((!allChecked && expanded ) || (allChecked && !expanded)) {
+      // turn off override if it matches the automatic state
+      toggleTier(null, tier, section);
+    }
+    return {expanded: nowExpanded};
+  }
+
+  toggleTier(event, tier, section) {
+    this.setState({ expanded: !this.state.expanded });
+    this.props.toggleTier(event, tier, section);
   }
 
   prerequisites = (tier, section) => {
     const { checkDenominator, checkNumerator, tiers } = this.props;
-    const { override } = this.state;
-    if (!tiers[tier].hasOwnProperty('prerequisiteTiers')) {
-      if (!override) {
-        this.setState({ expanded: true });
-      }
+    if (!Object.prototype.hasOwnProperty.call(tiers[tier], 'prerequisiteTiers')) {
       return null
     } else {
-      let expanded = []
+      let expanded = [];
       const label = tiers[tier].prerequisiteTiers.map((prereq, index) => {
         const numerator = checkNumerator(prereq, section);
         const denominator = checkDenominator(prereq, section);
         expanded.push(numerator >= denominator);
         return (
-          <ProgressLabelled key={ tier + "-" + section + "-prerequisites-" + index.toString() } tier={ prereq } {...{ numerator, denominator }} />
+          <ProgressLabelled key={ tier + "-" + section + "-prerequisites-" + index.toString() } tier={ prereq } { ...{numerator, denominator} } />
         );
       });
-      if (!override && expanded.every(item => item === true)) {
-        this.setState({ expanded: true });
-      };
       return label;
     }
   }
 
-  tier_section = (tier, section) => {
-  };
-
   render() {
     const { checkDenominator, checkNumerator, checks, handleCheck, items, section, tier, tiers } = this.props;
-
+    const { toggleTier } = this;
     const title = Object.keys(tiers).filter(_tier => _tier === tier).map(_tier => {
       return (
         <Container key={tier + "-benefits-tooltip"}>
@@ -69,7 +99,7 @@ class Tier extends PureComponent {
     });
 
     return (
-      <Accordion key={ tier + "=" + section } expanded={ this.state.expanded } onChange={ () => this.onChange() }>
+      <Accordion key={ tier + "-" + section } expanded={ this.state.expanded } onChange={ event => toggleTier(event, tier, section) }>
         <AccordionSummary expandIcon={ <ExpandMoreIcon /> }>
         <Tooltip key={tier + "-benefits"} title={ title }>
         <Typography variant="h3">{ tier }</Typography>

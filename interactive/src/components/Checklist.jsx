@@ -1,4 +1,4 @@
-import { PureComponent } from 'react';
+import { PureComponent, React } from 'react';
 import PropTypes from 'prop-types';
 import { Checkbox, Container, List, ListItem, ListItemText, Typography } from '@mui/material';
 import standardChecklist from 'nmind-coding-standards-checklist/checklist.json';
@@ -9,6 +9,7 @@ class CheckboxItem extends PureComponent {
     checks: PropTypes.object.isRequired,
     handleCheck: PropTypes.func.isRequired,
     item: PropTypes.object.isRequired,
+    toggleTier: PropTypes.func.isRequired,
   }
 
   constructor(props) {
@@ -18,7 +19,7 @@ class CheckboxItem extends PureComponent {
 
   checkSubitems(item) {
     const { checks } = this.props;
-    return item.hasOwnProperty('items') ? item.items.filter(subitem => {
+    return Object.prototype.hasOwnProperty.call(item, 'items') ? item.items.filter(subitem => {
         return checks[subitem.prompt] === true
       }).length === item.items.length : false;
   }
@@ -36,6 +37,10 @@ class CheckboxItem extends PureComponent {
     this.props.handleCheck(event);
   }
 
+  toggleTier(event, tier, section) {
+    this.props.toggleTier(event, tier, section);
+  }
+
   render() {
     const { checks, item } = this.props;
     let parenthetical = '';
@@ -47,7 +52,7 @@ class CheckboxItem extends PureComponent {
       parenthetical = `(e.g., ${item.examples.join(', ')})`;
     }
     return (
-      item.hasOwnProperty('items') ? <><ListItem key={ item.prompt }>
+      Object.prototype.hasOwnProperty.call(item, 'items') ? <><ListItem key={ item.prompt }>
       <Checkbox 
         name={ item.prompt }
         checked={ this.checkSubitems(item) }
@@ -76,24 +81,25 @@ class Checklist extends PureComponent {
 
     this.state = {
       checks: {},
-      numerator: {}
+      overrides: []
     };
 
     this.checkDenominator = this.checkDenominator.bind(this);
     this.checkNumerator = this.checkNumerator.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
+    this.toggleTier = this.toggleTier.bind(this);
   }
 
   checkDenominator(prereq, section) {
     const { items, tiers } = standardChecklist;
-    return items.filter(item => item.section === section && item.tier === prereq).length + (tiers.hasOwnProperty(prereq) && tiers[prereq].hasOwnProperty('prerequisiteTiers') ? tiers[prereq].prerequisiteTiers.length : 0)
+    return items.filter(item => item.section === section && item.tier === prereq).length + (Object.prototype.hasOwnProperty.call(tiers, prereq) && Object.prototype.hasOwnProperty.call(tiers[prereq], 'prerequisiteTiers') ? tiers[prereq].prerequisiteTiers.length : 0)
   }
 
   checkNumerator(tier, section) {
     const { items, tiers } = standardChecklist;
     const { checks } = this.state;
     let numerator = items.filter(item => item.section === section && item.tier === tier).map(item => item.prompt).filter(item => checks[item] === true).length;
-    if (tiers[tier].hasOwnProperty('prerequisiteTiers')) {
+    if (Object.prototype.hasOwnProperty.call(tiers[tier], 'prerequisiteTiers')) {
       tiers[tier].prerequisiteTiers.forEach(prereq => {
         if (this.checkNumerator(prereq, section) >= this.checkDenominator(prereq, section)) {
           numerator += 1;
@@ -109,14 +115,26 @@ class Checklist extends PureComponent {
     newCheck[name] = checked;
     this.setState((state, props) => ({
       checks: {
-        ...this.state.checks,
+        ...state.checks,
         ...newCheck}
-    }))
+    }));
+  }
+
+  toggleTier(event, tier, section) {
+    const { overrides } = this.state;
+    const tierSection = `${tier}-${section}`;
+    if (!overrides.includes(tierSection)) {
+      this.setState({ overrides: [...overrides, tierSection] });
+    } else {
+      this.setState({ overrides: overrides.filter(item => item !== tierSection) })
+    }
   }
 
   render() {
     const { items, tiers } = standardChecklist;
     const sections = [...new Set(items.filter(item => item.section).map(item => item.section))];
+    const { checks, overrides } = this.state;
+    const { checkDenominator, checkNumerator, handleCheck, toggleTier } = this;
 
     return (
       <List disablePadding={ true }>
@@ -126,7 +144,7 @@ class Checklist extends PureComponent {
             <List disablePadding={ true }>
               { Object.keys(tiers).map(tier => (
                   <div key={ section + '-' + tier + '-div' }>
-                  <Tier key={ section + '-' + tier } checkDenominator={ this.checkDenominator } checkNumerator={ this.checkNumerator } checks={ this.state.checks } handleCheck={ this.handleCheck } {...{ items, section, tier, tiers }} />
+                  <Tier key={ section + '-' + tier } { ...{ checkNumerator, checkDenominator, checks, handleCheck, items, overrides, section, tier, tiers, toggleTier } } />
                 </div>
                )) }
             </List>
@@ -166,7 +184,7 @@ class SubChecklist extends PureComponent {
             />
         ))}
       </List>
-    )};
+    )}
 }
 
 export { CheckboxItem, Checklist };
