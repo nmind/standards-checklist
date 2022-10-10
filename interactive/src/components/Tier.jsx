@@ -35,26 +35,29 @@ class Tier extends PureComponent {
     const override = overrides.includes(`${tier}-${section}`);
     const allChecked = checkNumerator(tier, section) >= checkDenominator(tier, section);
     let nowExpanded = expanded;
-    if (!override) {
-      if (Object.prototype.hasOwnProperty.call(tiers[tier], 'prerequisiteTiers')) {
-        let prereqs = [];
-          tiers[tier].prerequisiteTiers.forEach(prereq => {
-            const numerator = checkNumerator(prereq, section);
-            const denominator = checkDenominator(prereq, section);
-            prereqs.push(numerator >= denominator);
-          });
-        if (prereqs.every(item => item === true)) {
-          // expand when all prerequisites are met
-          nowExpanded = !allChecked;
-        }
-      } else if (!allChecked) {
-        nowExpanded = true;
-      } else if (allChecked) {
-        nowExpanded = false;
+    if (Object.prototype.hasOwnProperty.call(tiers[tier], 'prerequisiteTiers')) {
+      let prereqs = [];
+        tiers[tier].prerequisiteTiers.forEach(prereq => {
+          const numerator = checkNumerator(prereq, section);
+          const denominator = checkDenominator(prereq, section);
+          prereqs.push(numerator >= denominator);
+        });
+      if (prereqs.every(item => item === true)) {
+        // expand when all prerequisites are met
+        nowExpanded = !allChecked;
       }
-    } else if ((!allChecked && expanded ) || (allChecked && !expanded)) {
-      // turn off override if it matches the automatic state
-      toggleTier(null, tier, section);
+    } else if (!allChecked) {
+      nowExpanded = true;
+    } else if (allChecked) {
+      nowExpanded = false;
+    }
+    if (override) {
+      if (nowExpanded === expanded ) {
+        // turn off override if it matches the automatic state
+        toggleTier(null, tier, section);
+      } else {
+        return state;
+      }
     }
     return {expanded: nowExpanded};
   }
