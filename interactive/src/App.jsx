@@ -15,11 +15,13 @@ import logo from './logo.jsx.svg';
 import './nmind.orgExcerpts.css';
 import './App.css';
 import { Checklist } from './components/Checklist';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="App">
+    <LocalizationProvider dateAdapter={ AdapterMoment } >
       <header className="App-header">
         <a href="https://nmind.org">
           <img src={logo} className="App-logo" alt="logo" />
@@ -30,7 +32,7 @@ function App() {
       </header>
       <Checklist />
       <Footer />
-    </div>
+      </LocalizationProvider>
   );
 }
 

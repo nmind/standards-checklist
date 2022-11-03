@@ -1,6 +1,7 @@
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Checkbox, Container, List, ListItem, ListItemText, Typography } from '@mui/material';
+import { Checkbox, Container, FormGroup, Input, List, ListItem, ListItemText, Typography } from '@mui/material';
+import { CalendarPicker } from '@mui/x-date-pickers';
 import standardChecklist from 'nmind-coding-standards-checklist/checklist.json';
 import Tier from './Tier';
 
@@ -120,6 +121,26 @@ class Checklist extends PureComponent {
 
     return (
       <List disablePadding={ true }>
+        <FormGroup id="project-metadata">
+          <center>
+          <Input id="project-name" inputProps={{
+              style: { textAlign: "center", }
+            }} placeholder="Project Name" sx={{
+              fontSize: "4rem",
+              fontWeight: 300,
+              textAlign: "center",
+              width: "30%",
+            }} /><br/>
+          <Input id="project-url" placeholder="project URL" inputProps={{
+              style: { textAlign: "center", }
+            }} /><br/>
+          <h4>reviewed</h4>
+          <CalendarPicker id="date" disabled disableFuture disablePast openTo="day" onChange={ () => {} } readOnly />
+          by <Input id="reviewer" inputProps={{
+            style: { textAlign: "center", }
+          }} placeholder="Name <email>" />
+          </center>
+        </FormGroup>
         { sections.map(section => (
           <Container key={section}>
             <Typography variant="h2">{ section }</Typography>
