@@ -1,6 +1,6 @@
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Checkbox, Container, List, ListItem, ListItemText, Typography } from '@mui/material';
+import { Checkbox, Container, Input, List, ListItem, ListItemText, Typography } from '@mui/material';
 import standardChecklist from 'nmind-coding-standards-checklist/checklist.json';
 import Tier from './Tier';
 
@@ -54,17 +54,23 @@ class CheckboxItem extends PureComponent {
         disabled={ true }
         onChange={ this.handleCheck }
       />
-      <ListItemText primary={ item.prompt } secondary={ parenthetical }/>
+      <div>
+        <ListItemText primary={ item.prompt } secondary={ parenthetical }/>
+        <Input id={ item.prompt + "-comments" } label="Comments" multiline maxRows={4} placeholder="comments" fullWidth />
+      </div>
     </ListItem><ListItem>
         <SubChecklist item={ item } checks={ checks } handleCheck={ this.handleCheck } />
       </ListItem></> : <ListItem key={ item.prompt }>
-        <Checkbox 
+      <Checkbox
           name={ item.prompt }
           checked={ this.checkValue(item.prompt) }
           disabled={ false }
           onChange={ this.handleCheck }
         />
+      <div>
         <ListItemText primary={ item.prompt } secondary={ parenthetical }/>
+        <Input id={ item.prompt + "-comments" } label="Comments" multiline maxRows={4} placeholder="comments" fullWidth />
+      </div>
       </ListItem>
     );
   }
