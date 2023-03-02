@@ -1,7 +1,8 @@
 ## Coding Standards Certification
 
-This repo contains [checklists](https://www.nmind.org/standards-checklist) (still drafts) of bronze, silver, and gold NMIND certifications.
-Inspired from the [original hackmd document](https://hackmd.io/@mathiasg/SJCPHKZKu).
+This repo contains [checklists](https://www.nmind.org/standards-checklist) for bronze, silver, and gold tiers of NMIND standards.
+
+These checklists are encoded in JSON in [`checklists/checklist.json`](checklists/checklist.json) and rendered human-readable at [nmind.org/standards-checklist](https://www.nmind.org/standards-checklist).
 
 ---
 
@@ -26,3 +27,7 @@ Inspired from the [original hackmd document](https://hackmd.io/@mathiasg/SJCPHKZ
 - A greater sense of community guidelines, attracting contributors
 - Extensive documentation assists users with more advanced use cases
 - JoSS will increase the visibility of your project!
+
+---
+
+Inspired by the [original hackmd document](https://hackmd.io/@mathiasg/SJCPHKZKu).
