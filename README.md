@@ -40,8 +40,7 @@ For example, this snippet:
     },
 ```
 
-renders as under the **Bronze** heading as the checklist
-item:
+renders under the **Bronze** heading as the checklist item:
 
 > * [ ] Landing page (e.g., GitHub README, website) provides a link to documentation and brief description of what program does
 
