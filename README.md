@@ -18,7 +18,7 @@ These checklists are encoded in JSON in [`checklists/checklist.json`](checklists
 
 ### Gold Tier
 - All benefits of silver plus...
-- A greater sense of community guidelines, attracting contributors
+- A greater sense of community guidelines, attracting contributors.
 - Extensive documentation assists users with more advanced use cases
 - JoSS will increase the visibility of your project!
 
