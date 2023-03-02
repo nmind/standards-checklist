@@ -1,4 +1,5 @@
 # Coding Standards Certification
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7693084.svg)](https://doi.org/10.5281/zenodo.7693084)
 
 This repo contains [checklists](https://www.nmind.org/standards-checklist) for bronze, silver, and gold tiers of NMIND standards.
 
