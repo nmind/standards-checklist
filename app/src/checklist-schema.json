@@ -1,0 +1,29 @@
+{
+    "title": "NMIND checklist",
+    "description": "A good description",    
+    "type": "object",
+    "properties": {
+        "tiers": {
+            "description": "A good description",
+            "type": "object",
+            "properties": {
+                "bronze": {
+                    "type": "object",
+                    "properties": {
+                        "documentation": {
+                            "type": "object",
+                            "properties": {
+                                "1": {
+                                    "type":"boolean",
+                                    "title": "Landing page (e.g., GitHub README, website) provides a link to documentation and brief description of what program does",
+                                    "description": "public function docstring / help coverage \u2265 10%"
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
