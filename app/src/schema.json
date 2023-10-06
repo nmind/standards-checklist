@@ -1,6 +1,6 @@
 {
   "title": "NMIND checklist",
-  "description": "A good description",
+  "description": "Checklists for bronze, silver, and gold tiers of NMIND standards",
   "type": "object",
   "properties": {
     "name": {
