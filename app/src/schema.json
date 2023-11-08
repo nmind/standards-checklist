@@ -15,12 +15,10 @@
         "properties": {
           "url": {
             "title": "Link",
-            "prompt": "Link",
             "type": "string"
           },
           "url_type": {
             "title": "Link type",
-            "prompt": "type",
             "type": "string",
             "enum": [
               "Landing page",
@@ -67,11 +65,13 @@
             "5": {
               "type": "boolean",
               "title": "Document functions intended to be used by users",
+              "description": "(i.e., public function docstring / help coverage ≥ 10%)",
               "default": false
             },
             "6": {
               "type": "boolean",
               "title": "Description of required input parameters for user-facing functions with reasonable description of inputs",
+              "description": "(i.e., \"NIfTI of brain mask in MNI\" vs. \"An image file\")",
               "default": false
             },
             "7": {
@@ -87,6 +87,7 @@
             "9": {
               "type": "boolean",
               "title": "Dependencies listed",
+              "description": "(i.e., external and within-language requirements)",
               "default": false
             }
           },
@@ -114,6 +115,7 @@
             "2": {
               "type": "boolean",
               "title": "One or more tutorial to showcase the multiple of the program's usages",
+              "description": "(i.e., if program has multiple usages)",
               "default": false
             },
             "3": {
@@ -129,11 +131,13 @@
             "5": {
               "type": "boolean",
               "title": "Document public functions",
+              "description": "(i.e., public function docstring / help coverage ≥ 20%)",
               "default": false
             },
             "6": {
               "type": "boolean",
               "title": "A statement of supported operating systems / environments",
+              "description": "(i.e., could be a container recipe)",
               "default": false
             }
           },
@@ -168,6 +172,7 @@
             "4": {
               "type": "boolean",
               "title": "Document functions, classes, modules, etc.",
+              "description": "(i.e., public + private docstring / help coverage ≥ 40%)",
               "default": false
             },
             "5": {
@@ -178,6 +183,7 @@
             "6": {
               "type": "boolean",
               "title": "Maintenance status is documented",
+              "description": "(e.g., expected turnaround time on pull requests, whether project is maintained)",
               "default": false
             }
           },
@@ -228,11 +234,13 @@
             "5": {
               "type": "boolean",
               "title": "Issues tracking is enabled",
+              "description": "(i.e., either through GitHub or external site)",
               "default": false
             },
             "6": {
               "type": "boolean",
               "title": "Digital Object Identifier (DOI) points to latest version",
+              "description": "(e.g., Zenodo)",
               "default": false
             },
             "7": {
@@ -258,6 +266,7 @@
             "1": {
               "type": "boolean",
               "title": "Issue template(s) available",
+              "description": "(i.e., information requested by developers)",
               "default": false
             },
             "2": {
@@ -268,6 +277,7 @@
             "3": {
               "type": "boolean",
               "title": "No excessive files included",
+              "description": "(i.e., unused files / cache; e.g., .gitignore)",
               "default": false
             }
           },
