@@ -9,7 +9,7 @@ import {
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import React from 'react';
 import { withJsonFormsLayoutProps } from '@jsonforms/react';
-import { ControlProps, rankWith, uiTypeIs } from '@jsonforms/core';
+import { rankWith, uiTypeIs } from '@jsonforms/core';
 import { Shield, SHIELD_FILL, SHIELD_STROKE } from './components/Shield';
 import { dictAllTrue, dictFractionTrueString } from './utils';
 
