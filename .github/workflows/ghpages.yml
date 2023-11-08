@@ -22,12 +22,12 @@ jobs:
       - name: Install and Build
         run: |
           cd app
-          npm install
+          npm ci
           npm run build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           branch: gh-pages
-          folder: app/build
+          folder: ./app/build
         if: github.event_name == 'push'
