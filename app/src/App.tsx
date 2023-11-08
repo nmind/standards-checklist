@@ -15,7 +15,8 @@ import { Button, AppBar, Container, Toolbar, Typography } from '@mui/material';
 
 import { downloadJson, downloadCsv, tableToCSV, jsonSchemaGenerateDefaultObject, uploadJson } from './utils';
 
-import MyGroupRenderer, { myGroupTester } from './MyGroup';
+import CustomGroupRenderer, { CustomGroupTester } from './GroupRenderer';
+import CustomCheckboxRenderer, { CustomCheckboxControlTester } from './CheckboxRenderer';
 
 import { Theme, ThemeProvider, createTheme } from '@mui/material/styles';
 
@@ -105,7 +106,11 @@ function App() {
         <JsonForms
           schema={check}
           data={data}
-          renderers={[...materialRenderers, { tester: myGroupTester, renderer: MyGroupRenderer }]}
+          renderers={[...materialRenderers, 
+            { tester: CustomGroupTester, renderer: CustomGroupRenderer },
+            { tester: CustomCheckboxControlTester, renderer: CustomCheckboxRenderer }
+          
+          ]}
           cells={materialCells}
           onChange={({ data, errors }) => setData(data)}
           ajv={handleDefaultsAjv}
