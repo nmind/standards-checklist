@@ -21,13 +21,13 @@ jobs:
 
       - name: Install and Build
         run: |
-          cd interactive
-          npm install
+          cd app
+          npm ci
           npm run build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           branch: gh-pages
-          folder: interactive/build
+          folder: ./app/build
         if: github.event_name == 'push'

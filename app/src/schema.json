@@ -1,0 +1,417 @@
+{
+  "title": "NMIND checklist",
+  "description": "Checklists for bronze, silver, and gold tiers of NMIND standards",
+  "type": "object",
+  "properties": {
+    "name": {
+      "title": "Software name",
+      "type": "string"
+    },
+    "urls": {
+      "title": "Links",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "title": "Link",
+            "type": "string"
+          },
+          "url_type": {
+            "title": "Link type",
+            "type": "string",
+            "enum": [
+              "Landing page",
+              "Source code",
+              "Documentation"
+            ],
+            "default": "Landing page"
+          }
+        },
+        "required": [
+          "url",
+          "url_type"
+        ],
+        "additionalProperties": false
+      },
+      "default": []
+    },
+    "documentation": {
+      "type": "object",
+      "properties": {
+        "bronze": {
+          "type": "object",
+          "properties": {
+            "1": {
+              "type": "boolean",
+              "title": "Landing page (e.g., GitHub README, website) provides a link to documentation and brief description of what program does",
+              "default": false
+            },
+            "2": {
+              "type": "boolean",
+              "title": "Documentation is up to date with version of software",
+              "default": false
+            },
+            "3": {
+              "type": "boolean",
+              "title": "Typical intended usage is described",
+              "default": false
+            },
+            "4": {
+              "type": "boolean",
+              "title": "An example of its usage is shown",
+              "default": false
+            },
+            "5": {
+              "type": "boolean",
+              "title": "Document functions intended to be used by users",
+              "description": "(i.e., public function docstring / help coverage ≥ 10%)",
+              "default": false
+            },
+            "6": {
+              "type": "boolean",
+              "title": "Description of required input parameters for user-facing functions with reasonable description of inputs",
+              "description": "(i.e., \"NIfTI of brain mask in MNI\" vs. \"An image file\")",
+              "default": false
+            },
+            "7": {
+              "type": "boolean",
+              "title": "Description of output(s)",
+              "default": false
+            },
+            "8": {
+              "type": "boolean",
+              "title": "User installation instructions available",
+              "default": false
+            },
+            "9": {
+              "type": "boolean",
+              "title": "Dependencies listed",
+              "description": "(i.e., external and within-language requirements)",
+              "default": false
+            }
+          },
+          "required": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "additionalProperties": false
+        },
+        "silver": {
+          "type": "object",
+          "properties": {
+            "1": {
+              "type": "boolean",
+              "title": "Background/significance of program",
+              "default": false
+            },
+            "2": {
+              "type": "boolean",
+              "title": "One or more tutorial to showcase the multiple of the program's usages",
+              "description": "(i.e., if program has multiple usages)",
+              "default": false
+            },
+            "3": {
+              "type": "boolean",
+              "title": "Any alternative usage that is advertised is thoroughly documented",
+              "default": false
+            },
+            "4": {
+              "type": "boolean",
+              "title": "Thorough description of required and optional input parameters",
+              "default": false
+            },
+            "5": {
+              "type": "boolean",
+              "title": "Document public functions",
+              "description": "(i.e., public function docstring / help coverage ≥ 20%)",
+              "default": false
+            },
+            "6": {
+              "type": "boolean",
+              "title": "A statement of supported operating systems / environments",
+              "description": "(i.e., could be a container recipe)",
+              "default": false
+            }
+          },
+          "required": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "additionalProperties": false
+        },
+        "gold": {
+          "type": "object",
+          "properties": {
+            "1": {
+              "type": "boolean",
+              "title": "Continuous integration badges in README for build status",
+              "default": false
+            },
+            "2": {
+              "type": "boolean",
+              "title": "Continuous integration badges in README for tests passing",
+              "default": false
+            },
+            "3": {
+              "type": "boolean",
+              "title": "Continuous integration badges in README for coverage",
+              "default": false
+            },
+            "4": {
+              "type": "boolean",
+              "title": "Document functions, classes, modules, etc.",
+              "description": "(i.e., public + private docstring / help coverage ≥ 40%)",
+              "default": false
+            },
+            "5": {
+              "type": "boolean",
+              "title": "Has a documented style guide",
+              "default": false
+            },
+            "6": {
+              "type": "boolean",
+              "title": "Maintenance status is documented",
+              "description": "(e.g., expected turnaround time on pull requests, whether project is maintained)",
+              "default": false
+            }
+          },
+          "required": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "bronze",
+        "silver",
+        "gold"
+      ],
+      "additionalProperties": false
+    },
+    "infrastructure": {
+      "type": "object",
+      "properties": {
+        "bronze": {
+          "type": "object",
+          "properties": {
+            "1": {
+              "type": "boolean",
+              "title": "Code is open source",
+              "default": false
+            },
+            "2": {
+              "type": "boolean",
+              "title": "Package is under version control",
+              "default": false
+            },
+            "3": {
+              "type": "boolean",
+              "title": "Readme is present",
+              "default": false
+            },
+            "4": {
+              "type": "boolean",
+              "title": "License is present",
+              "default": false
+            },
+            "5": {
+              "type": "boolean",
+              "title": "Issues tracking is enabled",
+              "description": "(i.e., either through GitHub or external site)",
+              "default": false
+            },
+            "6": {
+              "type": "boolean",
+              "title": "Digital Object Identifier (DOI) points to latest version",
+              "description": "(e.g., Zenodo)",
+              "default": false
+            },
+            "7": {
+              "type": "boolean",
+              "title": "All documented installation instructions can be successfully followed",
+              "default": false
+            }
+          },
+          "required": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"
+          ],
+          "additionalProperties": false
+        },
+        "silver": {
+          "type": "object",
+          "properties": {
+            "1": {
+              "type": "boolean",
+              "title": "Issue template(s) available",
+              "description": "(i.e., information requested by developers)",
+              "default": false
+            },
+            "2": {
+              "type": "boolean",
+              "title": "Continuous integration runs tests",
+              "default": false
+            },
+            "3": {
+              "type": "boolean",
+              "title": "No excessive files included",
+              "description": "(i.e., unused files / cache; e.g., .gitignore)",
+              "default": false
+            }
+          },
+          "required": [
+            "1",
+            "2",
+            "3"
+          ],
+          "additionalProperties": false
+        },
+        "gold": {
+          "type": "object",
+          "properties": {
+            "1": {
+              "type": "boolean",
+              "title": "Continuous integration builds packages",
+              "default": false
+            },
+            "2": {
+              "type": "boolean",
+              "title": "Continuous integration validates style",
+              "default": false
+            },
+            "3": {
+              "type": "boolean",
+              "title": "Journal of Open Source Software submission",
+              "default": false
+            },
+            "4": {
+              "type": "boolean",
+              "title": "Contribution guide present",
+              "default": false
+            },
+            "5": {
+              "type": "boolean",
+              "title": "Code of Conduct present",
+              "default": false
+            }
+          },
+          "required": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "bronze",
+        "silver",
+        "gold"
+      ],
+      "additionalProperties": false
+    },
+    "testing": {
+      "type": "object",
+      "properties": {
+        "bronze": {
+          "type": "object",
+          "properties": {
+            "1": {
+              "type": "boolean",
+              "title": "Provide / generate / point to test data",
+              "default": false
+            },
+            "2": {
+              "type": "boolean",
+              "title": "Provide instructions for users to run tests that include instructions for evaluation for correct behavior",
+              "default": false
+            }
+          },
+          "required": [
+            "1",
+            "2"
+          ],
+          "additionalProperties": false
+        },
+        "silver": {
+          "type": "object",
+          "properties": {
+            "1": {
+              "type": "boolean",
+              "title": "Some form of testing suite present",
+              "default": false
+            },
+            "2": {
+              "type": "boolean",
+              "title": "Test coverage > 50%",
+              "default": false
+            }
+          },
+          "required": [
+            "1",
+            "2"
+          ],
+          "additionalProperties": false
+        },
+        "gold": {
+          "type": "object",
+          "properties": {
+            "1": {
+              "type": "boolean",
+              "title": "Test coverage > 90%",
+              "default": false
+            },
+            "2": {
+              "type": "boolean",
+              "title": "Benchmarking information is provided for examples",
+              "default": false
+            }
+          },
+          "required": [
+            "1",
+            "2"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "bronze",
+        "silver",
+        "gold"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "name",
+    "urls",
+    "documentation",
+    "infrastructure",
+    "testing"
+  ],
+  "additionalProperties": false
+}
