@@ -148,3 +148,7 @@ export function dictFractionTrueString(obj: { [key: string]: boolean }): string 
 
   return `${trueCount}/${total}`;
 }
+
+export function openNewWindow(url: string) {
+  window.open(url, '_blank');
+}
