@@ -214,6 +214,7 @@
             "1": {
               "type": "boolean",
               "title": "Code is open source",
+              "description": "(i.e., source code is available for viewing)",
               "default": false
             },
             "2": {
