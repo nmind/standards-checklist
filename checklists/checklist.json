@@ -142,6 +142,7 @@
     {
       "id": "bronze_inf_2",
       "prompt": "Package is under version control",
+      "clarification": "i.e., traceable history of changes; e.g. commit hash, version tags",
       "tier": "bronze",
       "section": "infrastructure",
       "type": "checkbox"

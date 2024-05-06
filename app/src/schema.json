@@ -219,6 +219,7 @@
             "2": {
               "type": "boolean",
               "title": "Package is under version control",
+              "description": "(i.e., traceable history of changes; e.g. commit hash, version tags)",
               "default": false
             },
             "3": {
