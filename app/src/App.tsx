@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
-import { JsonForms } from '@jsonforms/react';
 import { createAjv } from '@jsonforms/core';
+import { JsonForms } from '@jsonforms/react';
+import { useState } from 'react';
 
 import './App.css';
 
-import check from './schema.json';
 import {
-  materialRenderers,
   materialCells,
+  materialRenderers,
 } from '@jsonforms/material-renderers';
+import check from './schema.json';
 
 // material design button component
-import { Button, AppBar, Container, Toolbar, Typography } from '@mui/material';
+import { AppBar, Button, Container, Toolbar, Typography } from '@mui/material';
 
-import { downloadJson, downloadCsv, tableToCSV, jsonSchemaGenerateDefaultObject, uploadJson } from './utils';
+import { downloadCsv, downloadJson, jsonSchemaGenerateDefaultObject, submitJson, tableToCSV, uploadJson } from './utils';
 
-import CustomGroupRenderer, { CustomGroupTester } from './GroupRenderer';
 import CustomCheckboxRenderer, { CustomCheckboxControlTester } from './CheckboxRenderer';
+import CustomGroupRenderer, { CustomGroupTester } from './GroupRenderer';
 
 import { Theme, ThemeProvider, createTheme } from '@mui/material/styles';
 
@@ -117,23 +117,36 @@ function App() {
           uischema={uiSchema}
         />
         <h2>Data</h2>
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <Button variant="contained" onClick={() => downloadJson(JSON.stringify(data, null, 2), data?.name ? "checklist-" + data?.name : "checklist")}>
-            Export JSON
-          </Button>
-          <span style={{ paddingLeft: "1em" }} />
-          <Button variant="contained" onClick={() => downloadCsv(tableToCSV(dataToTable(data)), data?.name ? "checklist-" + data?.name : "checklist")}>
-            Export CSV
-          </Button>
-          <span style={{ paddingLeft: "1em" }} />
-          <Button variant="contained" onClick={async () => {
-            const json = await uploadJson();
-            if (json) {
-              setData(json);
-            }
-          }}>
-            Import JSON
-          </Button>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <div>
+            <Button variant="contained" onClick={() => downloadJson(JSON.stringify(data, null, 2), data?.name ? "checklist-" + data?.name : "checklist")}>
+              Export JSON
+            </Button>
+            <span style={{ paddingLeft: "1em" }} />
+            <Button variant="contained" onClick={() => downloadCsv(tableToCSV(dataToTable(data)), data?.name ? "checklist-" + data?.name : "checklist")}>
+              Export CSV
+            </Button>
+            <span style={{ paddingLeft: "1em" }} />
+            <Button variant="contained" onClick={async () => {
+              const json = await uploadJson();
+              if (json) {
+                setData(json);
+              }
+            }}>
+              Import JSON
+            </Button>
+          </div>
+          <div>
+            <Button variant="outlined" onClick={() => submitJson(data)} sx={{
+              transition: 'background-color 0.1s ease, color 0.1s ease',
+              '&:hover': {
+                'backgroundColor': '#1976D2',
+                'color': '#fff',
+              },
+            }}>
+              <strong>Submit</strong>
+            </Button>
+          </div>
         </div>
       </div>
     </ThemeProvider>
