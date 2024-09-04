@@ -45,6 +45,27 @@ renders under the **Bronze** heading as the checklist item:
 
 > * [ ] Landing page (e.g., GitHub README, website) provides a link to documentation and brief description of what program does
 
+## Workflow
+
+The workflow to add a new tool to the proceedings page is as follows:
+
+```mermaid
+flowchart LR
+  A(User checklist submission) --> B(Github Issue)
+  B --> C(Checklist review)
+  C --> D{Approved?}
+  D -->|No| E(Revision)
+  E --> C
+  D -->|Yes| F(Added to proceedings)
+```
+
+1. User submits checklist from the [web app](https://nmind.org/standards-checklist)
+2. An issue is created from submitted checklist
+3. Review process with NMIND moderator via created issue
+4. When approved (addition of `approved` label), user submission is added to the [checklist](https://nmind.org/proceedings) via CI.
+
+
+
 ---
 
 Inspired by the [original hackmd document](https://hackmd.io/@mathiasg/SJCPHKZKu).
