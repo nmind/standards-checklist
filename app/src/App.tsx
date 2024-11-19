@@ -35,7 +35,7 @@ import CustomCheckboxRenderer, {
 } from "./CheckboxRenderer";
 import CustomGroupRenderer, { CustomGroupTester } from "./GroupRenderer";
 
-import { Theme, ThemeProvider, createTheme } from "@mui/material/styles";
+import { createTheme, Theme, ThemeProvider } from "@mui/material/styles";
 
 import logo from "./logo192.png";
 
@@ -66,11 +66,13 @@ function App() {
     export: false,
     import: false,
   });
-  const handleModalOpen = (modal: 'export' | 'import') => {
-    setModalState((prevState => ({ ...prevState, [modal]: true })));
+  const [textareaValue, setTextareaValue] = useState("");
+
+  const handleModalOpen = (modal: "export" | "import") => {
+    setModalState((prevState) => ({ ...prevState, [modal]: true }));
   };
-  const handleModalClose = (modal: 'export' | 'import') => {
-    setModalState((prevState => ({ ...prevState, [modal]: false })));
+  const handleModalClose = (modal: "export" | "import") => {
+    setModalState((prevState) => ({ ...prevState, [modal]: false }));
   };
 
   const uiSchema = {
@@ -166,18 +168,25 @@ function App() {
           }}
         >
           <div>
-            <Button variant="contained" onClick={() => handleModalOpen('export')}>
+            {/* Export */}
+            <Button
+              variant="contained"
+              onClick={() => handleModalOpen("export")}
+            >
               Export
             </Button>
             <Modal
               open={modalState.export}
-              onClose={() => handleModalClose('export')}
+              onClose={() => handleModalClose("export")}
               aria-labelledby="modal-modal-title"
               aria-describedby="modal-modal-description"
             >
               <Box sx={modalStyle}>
                 <h2>Export checklist</h2>
-                <p>Save the completed checklist as one of the following file types.</p>
+                <p>
+                  Save the completed checklist as one of the following file
+                  types.
+                </p>
                 <div
                   style={{
                     display: "flex",
@@ -186,76 +195,132 @@ function App() {
                   }}
                 >
                   <div>
-                  <Button
-                    variant="contained"
-                    onClick={() => {
+                    <Button
+                      variant="contained"
+                      onClick={() => {
                         downloadJson(
                           JSON.stringify(data, null, 2),
                           data?.name ? "checklist-" + data?.name : "checklist"
                         );
-                        handleModalClose('export');
-                      }
-                    }
-                  >
-                    JSON
-                  </Button>
-                  <Button
-                    sx={{ margin: 1 }}
-                    variant="contained"
-                    onClick={() => {
+                        handleModalClose("export");
+                      }}
+                    >
+                      JSON
+                    </Button>
+                    <Button
+                      sx={{ margin: 1 }}
+                      variant="contained"
+                      onClick={() => {
                         downloadCsv(
                           tableToCSV(dataToTable(data)),
                           data?.name ? "checklist-" + data?.name : "checklist"
                         );
-                        handleModalClose('export');
-                      }
-                    }
-                  >
-                    CSV
-                  </Button>
+                        handleModalClose("export");
+                      }}
+                    >
+                      CSV
+                    </Button>
                   </div>
                   <Button
-                      variant="outlined"
-                      onClick={() => handleModalClose('export')}
-                      sx={{
-                        position: "relative",
-                        right: 16,
-                        transition: "background-color 0.1s ease, color 0.1s ease",
-                        "&:hover": {
-                          backgroundColor: "#1976D2",
-                          color: "#fff",
-                        },
-                      }}
+                    variant="outlined"
+                    onClick={() => handleModalClose("export")}
+                    sx={{
+                      position: "relative",
+                      right: 16,
+                      transition: "background-color 0.1s ease, color 0.1s ease",
+                      "&:hover": {
+                        backgroundColor: "#1976D2",
+                        color: "#fff",
+                      },
+                    }}
                   >
-                  <strong>Close</strong>
+                    <strong>Close</strong>
                   </Button>
                 </div>
               </Box>
             </Modal>
+            {/* Import */}
             <span style={{ paddingLeft: "1em" }} />
-            <Button variant="contained" onClick={() => handleModalOpen('import')}>
+            <Button
+              variant="contained"
+              onClick={() => handleModalOpen("import")}
+            >
               Import
             </Button>
             <Modal
               open={modalState.import}
-              onClose={() => handleModalClose('import')}
+              onClose={() => handleModalClose("import")}
               aria-labelledby="modal-modal-title"
               aria-describedby="modal-modal-description"
             >
               <Box sx={modalStyle}>
                 <h2>Import checklist</h2>
+                <p>
+                  Render a completed checklist from file, by string, or from URL
+                  from a submitted checklist
+                </p>
                 <Button
-                  sx={{ margin: 1 }}
                   variant="contained"
                   onClick={async () => {
                     const json = await uploadJson();
                     if (json) {
-                      setData(json);
+                      setTextareaValue(json);
                     }
                   }}
+                  fullWidth
+                  sx={{ marginBottom: 2 }}
+                  component="label"
                 >
-                  JSON File
+                  From JSON File
                 </Button>
+                <textarea
+                  placeholder="Enter checklist / import from JSON file"
+                  value={textareaValue}
+                  onChange={(e) => setTextareaValue(e.target.value)}
+                  style={{
+                    width: "100%",
+                    height: "200px",
+                    marginTop: "8px",
+                    marginBottom: "8px",
+                    borderRadius: "4px",
+                    resize: "none",
+                  }}
+                />
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: 16,
+                  }}
+                >
+                  <Button
+                    variant="contained"
+                    onClick={() => {
+                      try {
+                        setData(JSON.parse(textareaValue));
+                        handleModalClose("import");
+                      } catch (err) {
+                        console.log(err);
+                      }
+                    }}
+                  >
+                    Upload
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    onClick={() => handleModalClose("import")}
+                    sx={{
+                      transition: "background-color 0.1s ease, color 0.1s ease",
+                      "&:hover": {
+                        backgroundColor: "#1976D2",
+                        color: "#fff",
+                      },
+                    }}
+                  >
+                    <strong>Close</strong>
+                  </Button>
+                </div>
               </Box>
             </Modal>
           </div>

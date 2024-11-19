@@ -54,7 +54,7 @@ export function uploadJson(): Promise<any> {
         reader.onload = () => {
           try {
             const json = JSON.parse(reader.result as string);
-            resolve(json);
+            resolve(JSON.stringify(json, null, 2));
           } catch (e) {
             reject(e);
           }
