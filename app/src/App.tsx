@@ -208,7 +208,7 @@ function App() {
                       JSON
                     </Button>
                     <Button
-                      sx={{ margin: 1 }}
+                      sx={{ marginLeft: 1 }}
                       variant="contained"
                       onClick={() => {
                         downloadCsv(
@@ -219,6 +219,24 @@ function App() {
                       }}
                     >
                       CSV
+                    </Button>
+                    <Button
+                      sx={{ marginLeft: 1 }}
+                      variant="contained"
+                      onClick={() => {
+                        const dataString = JSON.stringify(data, null, 2);
+                        navigator.clipboard.writeText(dataString).then(
+                          () => {
+                            alert("Checklist copied!");
+                            handleModalClose('export');
+                          },
+                          (err) => {
+                            console.error("Error copying data to clipboard: ", err);
+                          }
+                        );
+                      }}
+                    >
+                      Copy
                     </Button>
                   </div>
                   <Button
