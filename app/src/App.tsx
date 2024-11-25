@@ -274,8 +274,8 @@ function App() {
               <Box sx={modalStyle}>
                 <h2>Import checklist</h2>
                 <p>
-                  Render a completed checklist from file, by string, or from URL
-                  from a submitted checklist
+                  Render a completed checklist from file or by entering it 
+                  in the text area.
                 </p>
                 <Button
                   variant="contained"
