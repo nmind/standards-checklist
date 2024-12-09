@@ -54,7 +54,7 @@ export function uploadJson(): Promise<any> {
         reader.onload = () => {
           try {
             const json = JSON.parse(reader.result as string);
-            resolve(json);
+            resolve(JSON.stringify(json, null, 2));
           } catch (e) {
             reject(e);
           }
@@ -73,6 +73,8 @@ function downloadTextFile(content: string, mimeType: string, filename: string) {
   const a = document.createElement("a");
   a.href = URL.createObjectURL(new Blob([content], { type: mimeType }));
   a.download = filename;
+  a.style.display = "none"
+  document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
 }
