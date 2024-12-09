@@ -135,6 +135,7 @@
     {
       "id": "bronze_inf_1",
       "prompt": "Code is open source",
+      "clarification": "source code is available for viewing",
       "tier": "bronze",
       "section": "infrastructure",
       "type": "checkbox"
